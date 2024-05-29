@@ -15,7 +15,7 @@ export default function Navbar() {
     <header className="relative md:sticky md:top-10">
       {/* Desktop Navigation Bar */}
       <div className="hidden justify-center md:flex">
-        <nav className="flex items-center gap-12 rounded-full bg-[#06040c] px-[60px] py-3 text-lg text-white">
+        <nav className="bg-dark-black flex items-center gap-12 rounded-full px-[60px] py-3 text-lg text-white">
           <a href="/">
             <Image
               src={"/assets/logo.png"}
@@ -43,7 +43,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation Bar */}
-      <div className="flex items-center justify-between bg-[#06040c] p-6 text-white md:hidden">
+      <div className="bg-dark-black flex items-center justify-between p-6 text-white md:hidden">
         <div>
           <a href="/">
             <Image
