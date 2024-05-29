@@ -12,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="relative md:sticky md:top-10">
+    <header className="relative z-50 md:sticky md:top-10">
       {/* Desktop Navigation Bar */}
       <div className="hidden justify-center md:flex">
         <nav className="bg-dark-black flex items-center gap-12 rounded-full px-[60px] py-3 text-lg text-white">
