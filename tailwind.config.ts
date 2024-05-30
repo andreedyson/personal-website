@@ -21,7 +21,7 @@ const config: Config = {
         "main-blue": "#4190D9",
         "dark-blue": "#4549AC",
         "dark-bg": "#241440",
-        "dark-black": "#2D1062",
+        "dark-purple": "#130035",
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",

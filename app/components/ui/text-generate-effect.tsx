@@ -6,9 +6,11 @@ import { cn } from "@/utils/cn";
 export const TextGenerateEffect = ({
   words,
   className,
+  delay = 0,
 }: {
   words: string;
   className?: string;
+  delay?: number;
 }) => {
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
@@ -19,11 +21,11 @@ export const TextGenerateEffect = ({
         opacity: 1,
       },
       {
-        duration: 2,
-        delay: stagger(0.2),
+        duration: 1,
+        delay: stagger(0.5, { startDelay: delay }),
       },
     );
-  }, [scope.current]);
+  }, [scope, animate, delay]);
 
   const renderWords = () => {
     return (
@@ -32,7 +34,7 @@ export const TextGenerateEffect = ({
           return (
             <motion.span
               key={word + idx}
-              className="dark:text-main-blue text-black opacity-0"
+              className="text-black opacity-0 dark:text-main-blue"
             >
               {word}{" "}
             </motion.span>
