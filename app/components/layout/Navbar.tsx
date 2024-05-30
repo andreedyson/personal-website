@@ -12,10 +12,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="relative md:sticky md:top-10">
+    <header className="relative z-50 md:sticky md:top-10">
       {/* Desktop Navigation Bar */}
       <div className="hidden justify-center md:flex">
-        <nav className="bg-dark-black flex items-center gap-12 rounded-full px-[60px] py-3 text-lg text-white">
+        <nav className="bg-dark-purple flex items-center gap-12 rounded-full px-[60px] py-3 text-lg text-white">
           <a href="/">
             <Image
               src={"/assets/logo.png"}
@@ -24,26 +24,26 @@ export default function Navbar() {
               alt="Logo AE"
             />
           </a>
-          <a href="#home" className="hover:text-main-blue duration-200">
+          <a href="#home" className="duration-200 hover:text-main-blue">
             Home
           </a>
-          <a href="#about" className="hover:text-main-blue duration-200">
+          <a href="#about" className="duration-200 hover:text-main-blue">
             About
           </a>
-          <a href="#stack" className="hover:text-main-blue duration-200">
+          <a href="#stack" className="duration-200 hover:text-main-blue">
             Stacks
           </a>
-          <a href="#project" className="hover:text-main-blue duration-200">
+          <a href="#project" className="duration-200 hover:text-main-blue">
             Projects
           </a>
-          <a href="#contact" className="hover:text-main-blue duration-200">
+          <a href="#contact" className="duration-200 hover:text-main-blue">
             Contact
           </a>
         </nav>
       </div>
 
       {/* Mobile Navigation Bar */}
-      <div className="bg-dark-black flex items-center justify-between p-6 text-white md:hidden">
+      <div className="bg-dark-purple flex items-center justify-between p-6 text-white md:hidden">
         <div>
           <a href="/">
             <Image
