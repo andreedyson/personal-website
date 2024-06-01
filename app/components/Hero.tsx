@@ -32,6 +32,11 @@ export default function Hero() {
           }}
           initial="hidden"
           animate="visible"
+          transition={{
+            type: "spring",
+            stiffness: 250,
+            damping: 10,
+          }}
         >
           Hello everyone, I&apos;m
         </motion.h3>
