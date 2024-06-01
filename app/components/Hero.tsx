@@ -32,6 +32,11 @@ export default function Hero() {
           }}
           initial="hidden"
           animate="visible"
+          transition={{
+            type: "spring",
+            stiffness: 250,
+            damping: 10,
+          }}
         >
           Hello everyone, I&apos;m
         </motion.h3>
@@ -68,8 +73,8 @@ export default function Hero() {
           animate="visible"
           transition={{ duration: 1, delay: 1.5, ease: "backInOut" }}
         >
-          <button className="group relative mb-2 mr-2 mt-4 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-main-blue to-dark-blue p-0.5 text-sm font-medium text-gray-900 duration-200 hover:text-white focus:ring-4 focus:ring-main-blue group-hover:from-main-blue group-hover:to-dark-blue dark:text-white dark:focus:ring-blue-800">
-            <span className="relative flex items-center gap-2 rounded-md bg-white px-5 py-2.5 text-base transition-all duration-200 ease-in group-hover:bg-opacity-0 dark:bg-gray-900">
+          <button className="group relative mb-2 mr-2 mt-4 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-main-blue to-dark-blue p-0.5 text-sm font-medium  text-white duration-200 hover:text-white focus:ring-4 focus:ring-main-blue group-hover:from-main-blue group-hover:to-dark-blue dark:text-black dark:focus:ring-blue-800">
+            <span className="relative flex items-center gap-2 rounded-md bg-gray-900 px-5 py-2.5 text-base transition-all duration-200 ease-in group-hover:bg-opacity-0 dark:bg-white">
               Check out my work
               <ChevronsDown size={24} />
             </span>
