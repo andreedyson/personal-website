@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="flex flex-col px-6 py-16 max-sm:mt-10 md:px-16 md:py-20 xl:px-40"
+      className="flex flex-col justify-center px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
     >
       <div className="flex flex-col items-center justify-between max-xl:gap-8 lg:flex-row xl:gap-12">
         <motion.div
