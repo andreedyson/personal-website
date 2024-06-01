@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="relative">
         {/* Desktop Navigation Bar */}
         <div className="hidden justify-center md:flex">
-          <nav className="flex items-center gap-12 rounded-full bg-dark-purple px-[40px] py-2 text-base text-white">
+          <nav className="bg-dark-navbar flex items-center gap-12 rounded-full px-[40px] py-2 text-base text-white">
             <a href="/">
               <Image
                 src={"/assets/logo.png"}
@@ -43,7 +43,7 @@ export default function Navbar() {
           </nav>
         </div>
         {/* Mobile Navigation Bar */}
-        <div className="flex items-center justify-between bg-dark-purple p-6 text-white md:hidden">
+        <div className="bg-dark-navbar flex items-center justify-between p-6 text-white md:hidden">
           <div>
             <a href="/">
               <Image
@@ -58,8 +58,10 @@ export default function Navbar() {
             {openNav ? <X size={32} /> : <Menu size={32} />}
           </div>
           <div
-            className={`fixed right-0 top-[88px] h-full w-[70%] bg-[#150f28] p-10 transition-transform duration-300 ease-in-out ${
-              openNav ? "translate-x-0" : "translate-x-full"
+            className={`fixed right-0 top-[88px] h-full w-[70%] bg-[#122540] p-10 transition-transform duration-300 ease-in-out ${
+              openNav
+                ? "translate-x-0 shadow-md shadow-black"
+                : "translate-x-full"
             }`}
           >
             <div className="flex flex-col items-center gap-4">
