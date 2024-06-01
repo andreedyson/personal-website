@@ -15,7 +15,7 @@ export default function Navbar() {
     <header className="relative z-50 md:sticky md:top-10">
       {/* Desktop Navigation Bar */}
       <div className="hidden justify-center md:flex">
-        <nav className="bg-dark-purple flex items-center gap-12 rounded-full px-[60px] py-3 text-lg text-white">
+        <nav className="flex items-center gap-12 rounded-full bg-dark-purple px-[40px] py-2 text-base text-white">
           <a href="/">
             <Image
               src={"/assets/logo.png"}
@@ -30,10 +30,10 @@ export default function Navbar() {
           <a href="#about" className="duration-200 hover:text-main-blue">
             About
           </a>
-          <a href="#stack" className="duration-200 hover:text-main-blue">
+          <a href="#stacks" className="duration-200 hover:text-main-blue">
             Stacks
           </a>
-          <a href="#project" className="duration-200 hover:text-main-blue">
+          <a href="#projects" className="duration-200 hover:text-main-blue">
             Projects
           </a>
           <a href="#contact" className="duration-200 hover:text-main-blue">
@@ -43,7 +43,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation Bar */}
-      <div className="bg-dark-purple flex items-center justify-between p-6 text-white md:hidden">
+      <div className="flex items-center justify-between bg-dark-purple p-6 text-white md:hidden">
         <div>
           <a href="/">
             <Image
@@ -71,10 +71,10 @@ export default function Navbar() {
             <a href="#about" onClick={handleOpenNav}>
               About
             </a>
-            <a href="#stack" onClick={handleOpenNav}>
+            <a href="#stacks" onClick={handleOpenNav}>
               Stacks
             </a>
-            <a href="#project" onClick={handleOpenNav}>
+            <a href="#projects" onClick={handleOpenNav}>
               Projects
             </a>
             <a href="#contact" onClick={handleOpenNav}>

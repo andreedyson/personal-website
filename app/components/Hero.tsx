@@ -8,13 +8,16 @@ import { ChevronsDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col items-center justify-center py-16 md:mt-10 md:py-[100px]">
-      <div className="absolute inset-0 h-[50vh] w-full md:-top-48 md:h-screen">
+    <section
+      id="home"
+      className="relative flex h-[89vh] w-full flex-col items-center justify-center py-48 md:mt-10"
+    >
+      <div className="absolute inset-0 h-screen w-full lg:-top-40 lg:h-[110vh]">
         <SparklesCore
           background="transparent"
           minSize={0.4}
           maxSize={1}
-          particleDensity={30}
+          particleDensity={80}
           className="h-full w-full"
           particleColor="#FFFFFF"
         />
@@ -35,7 +38,7 @@ export default function Hero() {
         <TextGenerateEffect
           words="Andre Edyson"
           delay={0.5}
-          className="text-3xl [text-shadow:_3px_3px_0_rgb(68_73_172_/_100%)] md:text-5xl lg:text-7xl"
+          className="text-4xl [text-shadow:_3px_3px_0_rgb(68_73_172_/_100%)] md:text-5xl lg:text-7xl"
         />
         <motion.p
           className="max-w-72 text-center text-xs leading-relaxed tracking-wide md:max-w-[400px] md:text-sm lg:text-base"
