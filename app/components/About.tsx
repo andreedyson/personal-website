@@ -39,9 +39,15 @@ export default function About() {
             <div className="absolute left-0 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
           </motion.div>
           <motion.div
-            initial={{ x: -30, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.8 }}
+            initial={{ y: 30, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : {}}
+            transition={{
+              duration: 1,
+              delay: 0.8,
+              type: "spring",
+              stiffness: 250,
+              damping: 10,
+            }}
             className="mt-6 max-w-[550px] space-y-4 text-gray-font md:space-y-8"
           >
             <p>
