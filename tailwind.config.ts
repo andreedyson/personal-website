@@ -26,8 +26,8 @@ const config = {
       colors: {
         "main-blue": "#4190D9",
         "dark-blue": "#4549AC",
-        "dark-bg": "#142040",
-        "dark-navbar": "#09182F",
+        "dark-bg": "#141D40",
+        "dark-navbar": "#121830",
         "gray-font": "#9598A0",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

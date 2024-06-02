@@ -27,7 +27,13 @@ function Stacks() {
           ref={ref}
           initial={{ y: -50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 1 }}
+          transition={{
+            delay: 0.8,
+            duration: 1,
+            type: "spring",
+            stiffness: 250,
+            damping: 10,
+          }}
           className="w-full space-y-4 text-center md:max-w-[413px]"
         >
           <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -46,7 +52,7 @@ function Stacks() {
               key={stack.name}
               initial={{ opacity: 0, x: -100 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 1 + index * 0.3, duration: 0.5 }}
+              transition={{ delay: 0.8 + index * 0.2 }}
             >
               <TooltipProvider>
                 <Tooltip>
