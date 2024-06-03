@@ -14,15 +14,15 @@ export default function About() {
       className="flex flex-col justify-center px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
     >
       <div className="flex flex-col items-center justify-between max-xl:gap-8 lg:flex-row xl:gap-12">
+        {/* About Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1 }}
         >
           <motion.div
             initial={{ y: -80, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.2 }}
           >
             <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">

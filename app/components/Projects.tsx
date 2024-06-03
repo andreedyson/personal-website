@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProjectCard from "./card/ProjectCard";
 import { projectsData } from "@/index";
@@ -12,15 +12,16 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
+      className="px-6 py-24 max-sm:mt-10 md:px-16 xl:px-40"
     >
       <div className="flex flex-col items-center gap-10">
+        {/* Projects Header */}
         <motion.div
           ref={ref}
           initial={{ y: -50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{
-            delay: 0.8,
+            delay: 0.4,
             duration: 1,
             type: "spring",
             stiffness: 250,
@@ -36,13 +37,19 @@ function Projects() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-12">
+        {/* Projects Card */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="flex flex-col gap-12"
+        >
           {projectsData.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ y: 50, opacity: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.5 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
             >
               <ProjectCard
                 title={project.title}
@@ -55,7 +62,7 @@ function Projects() {
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

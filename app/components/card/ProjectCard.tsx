@@ -48,13 +48,15 @@ function ProjectCard({
             <div className="flex items-center gap-2 md:gap-4">
               <a
                 href={repoUrl}
-                className="text-lg text-gray-500 duration-200 hover:-translate-y-2 md:text-2xl"
+                target="_blank"
+                className="text-lg text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
               >
                 <FaGithub />
               </a>
               <a
                 href={demoUrl}
-                className="text-lg text-gray-500 duration-200 hover:-translate-y-2 md:text-2xl"
+                target="_blank"
+                className="text-lg text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
               >
                 <FaArrowUpRightFromSquare />
               </a>
@@ -76,7 +78,7 @@ function ProjectCard({
                   height={24}
                   alt="react"
                   title={stack.name}
-                  className="size-5 cursor-pointer md:size-6"
+                  className="size-5 cursor-pointer rounded-full md:size-6"
                 />
               </div>
             ))}

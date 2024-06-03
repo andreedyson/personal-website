@@ -87,11 +87,41 @@ export const projectsData = [
         imgPath: "/assets/stacks/tailwindcss.svg",
       },
       {
+        name: "TypeScript",
+        imgPath: "/assets/stacks/typescript.svg",
+      },
+      {
+        name: "shadcn",
+        imgPath: "/assets/stacks/shadcn.svg",
+      },
+      {
         name: "MongoDB",
         imgPath: "/assets/stacks/mongodb.svg",
       },
     ],
     repoUrl: "https://github.com/andreedyson/cinereel",
     demoUrl: "https://cinereel.vercel.app/",
+  },
+  {
+    title: "Agenone",
+    description:
+      "Digital agency's React-based landing page, styled with Tailwind CSS, animated with GSAP that features hero, skills, projects, and testimonials.",
+    imgUrl: "/assets/projects/agenone.webp",
+    stacks: [
+      {
+        name: "React",
+        imgPath: "/assets/stacks/react.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "GSAP",
+        imgPath: "/assets/stacks/gsap.svg",
+      },
+    ],
+    repoUrl: "https://github.com/andreedyson/agenone",
+    demoUrl: "https://agenone-omega.vercel.app/",
   },
 ];

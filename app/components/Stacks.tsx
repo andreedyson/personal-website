@@ -28,7 +28,7 @@ function Stacks() {
           initial={{ y: -50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{
-            delay: 0.8,
+            delay: 0.4,
             duration: 1,
             type: "spring",
             stiffness: 250,
@@ -46,7 +46,12 @@ function Stacks() {
         </motion.div>
 
         {/* Stacks Grid */}
-        <div className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
+        >
           {stackData.map((stack, index) => (
             <motion.div
               key={stack.name}
@@ -72,7 +77,7 @@ function Stacks() {
               </TooltipProvider>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
