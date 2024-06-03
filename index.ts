@@ -48,3 +48,80 @@ export const stackData = [
     imgUrl: "/assets/stacks/vitejs.svg",
   },
 ];
+
+export const projectsData = [
+  {
+    title: "FinTrack",
+    description:
+      "A finance tracker web app with Next.js, MongoDB, and TypeScript. Easily manage accounts, track income, expenses, transfers, and categories with secure NextAuth. Take control of your finances effortlessly!",
+    imgUrl: "/assets/projects/fintrack.webp",
+    stacks: [
+      {
+        name: "React",
+        imgPath: "/assets/stacks/react.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "GSAP",
+        imgPath: "/assets/stacks/gsap.svg",
+      },
+    ],
+    repoUrl: "https://github.com/andreedyson/fintrack",
+    demoUrl: "https://fintrack-andre.vercel.app/",
+  },
+  {
+    title: "CineReel",
+    description:
+      "Next.js and MongoDB-powered movie database web app with shadcn for seamless browsing, adding favorites, writing reviews, accessing movie details and giving ratings.",
+    imgUrl: "/assets/projects/cinereel.webp",
+    stacks: [
+      {
+        name: "Next.js",
+        imgPath: "/assets/stacks/nextjs.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "TypeScript",
+        imgPath: "/assets/stacks/typescript.svg",
+      },
+      {
+        name: "shadcn",
+        imgPath: "/assets/stacks/shadcn.svg",
+      },
+      {
+        name: "MongoDB",
+        imgPath: "/assets/stacks/mongodb.svg",
+      },
+    ],
+    repoUrl: "https://github.com/andreedyson/cinereel",
+    demoUrl: "https://cinereel.vercel.app/",
+  },
+  {
+    title: "Agenone",
+    description:
+      "Digital agency's React-based landing page, styled with Tailwind CSS, animated with GSAP that features hero, skills, projects, and testimonials.",
+    imgUrl: "/assets/projects/agenone.webp",
+    stacks: [
+      {
+        name: "React",
+        imgPath: "/assets/stacks/react.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "GSAP",
+        imgPath: "/assets/stacks/gsap.svg",
+      },
+    ],
+    repoUrl: "https://github.com/andreedyson/agenone",
+    demoUrl: "https://agenone-omega.vercel.app/",
+  },
+];

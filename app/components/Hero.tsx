@@ -64,7 +64,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.a
-          href="#project"
+          href="#projects"
           variants={{
             hidden: { opacity: 0, y: -20 },
             visible: { opacity: 1, y: 0 },
