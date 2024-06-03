@@ -57,7 +57,7 @@ function Stacks() {
               key={stack.name}
               initial={{ opacity: 0, x: -100 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.8 + index * 0.2 }}
+              transition={{ delay: 0.8 + index * 0.05 }}
             >
               <TooltipProvider>
                 <Tooltip>

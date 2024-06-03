@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProjectCard from "./card/ProjectCard";
 import { projectsData } from "@/index";
@@ -8,6 +8,20 @@ import { projectsData } from "@/index";
 function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const fadeInAnimationVariants = {
+    initial: {
+      opacity: 0,
+      y: 50,
+    },
+    animate: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.4,
+      },
+    }),
+  };
 
   return (
     <section
@@ -47,9 +61,11 @@ function Projects() {
           {projectsData.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              custom={index}
             >
               <ProjectCard
                 title={project.title}
@@ -62,6 +78,18 @@ function Projects() {
               />
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 lg:mt-32"
+        >
+          <h3 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+            And <span className="text-main-blue">more</span> to come...
+          </h3>
         </motion.div>
       </div>
     </section>
