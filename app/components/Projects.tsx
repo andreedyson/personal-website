@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProjectCard from "./card/ProjectCard";
-import { projectsData } from "@/index";
+import { headerPopupAnimationVariants, projectsData } from "@/index";
 
 function Projects() {
   const ref = useRef(null);
@@ -23,6 +23,20 @@ function Projects() {
     }),
   };
 
+  const scaleUpAnimationVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.5 
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        delay: 0.5
+      }
+    }
+  }
+
   return (
     <section
       id="projects"
@@ -32,15 +46,9 @@ function Projects() {
         {/* Projects Header */}
         <motion.div
           ref={ref}
-          initial={{ y: -50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{
-            delay: 0.4,
-            duration: 1,
-            type: "spring",
-            stiffness: 250,
-            damping: 10,
-          }}
+          variants={headerPopupAnimationVariants}
+          initial="initial"
+          animate={isInView ? "visible": "hidden"}
           className="w-full space-y-4 text-center md:max-w-[413px]"
         >
           <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -81,9 +89,9 @@ function Projects() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
+          variants={scaleUpAnimationVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mt-16 lg:mt-32"
         >

@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { stackData } from "@/index";
+import { headerPopupAnimationVariants, stackData } from "@/index";
 import Image from "next/image";
 
 import {
@@ -16,6 +16,20 @@ function Stacks() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const stackStaggerAnimationVariants = {
+    hidden: {
+      opacity: 0,
+      x: -100
+    },
+    visible: (index: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 1 + index * 0.08,
+      },
+    })
+  }
+
   return (
     <section
       id="stacks"
@@ -25,15 +39,9 @@ function Stacks() {
         {/* Stack Header */}
         <motion.div
           ref={ref}
-          initial={{ y: -50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{
-            delay: 0.4,
-            duration: 1,
-            type: "spring",
-            stiffness: 250,
-            damping: 10,
-          }}
+          variants={headerPopupAnimationVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           className="w-full space-y-4 text-center md:max-w-[413px]"
         >
           <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -47,17 +55,16 @@ function Stacks() {
 
         {/* Stacks Grid */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 1 }}
           className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
         >
           {stackData.map((stack, index) => (
             <motion.div
               key={stack.name}
-              initial={{ opacity: 0, x: -100 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.8 + index * 0.05 }}
+              variants={stackStaggerAnimationVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              viewport={{ once: true }}
+              custom={index}
             >
               <TooltipProvider>
                 <Tooltip>
