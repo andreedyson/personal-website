@@ -125,3 +125,20 @@ export const projectsData = [
     demoUrl: "https://agenone-omega.vercel.app/",
   },
 ];
+export const headerPopupAnimationVariants = {
+  hidden: {
+    opacity: 0,
+    y: -50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.4,
+      duration: 1,
+      type: "spring",
+      stiffness: 250,
+      damping: 10,
+    },
+  },
+};

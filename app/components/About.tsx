@@ -3,10 +3,47 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { headerPopupAnimationVariants } from "@/index";
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const descriptionAnimationVariants = {
+    hidden: {
+      opacity: 0,
+      x: -30,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        delay: 1,
+        type: "spring",
+        stiffness: 250,
+        damping: 10,
+      },
+    },
+  };
+
+  const imageAnimationVariants = {
+     hidden: {
+      opacity: 0,
+      x: 30,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        delay: 1,
+        type: "spring",
+        stiffness: 250,
+        damping: 10,
+      },
+    },
+  }
 
   return (
     <section
@@ -17,8 +54,9 @@ export default function About() {
         {/* About Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          variants={headerPopupAnimationVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
           <motion.div
             initial={{ y: -80, opacity: 0 }}
@@ -40,15 +78,9 @@ export default function About() {
             <div className="absolute left-0 top-0 h-px w-2/4 bg-gradient-to-r from-main-blue via-sky-500 to-transparent" />
           </motion.div>
           <motion.div
-            initial={{ x: -30, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : {}}
-            transition={{
-              duration: 1,
-              delay: 1,
-              type: "spring",
-              stiffness: 250,
-              damping: 10,
-            }}
+            variants={descriptionAnimationVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="mt-6 max-w-[550px] space-y-4 text-sm text-gray-font md:space-y-8 md:text-base"
           >
             <p>
@@ -90,15 +122,9 @@ export default function About() {
         </motion.div>
 
         <motion.div
-          initial={{ x: 30, opacity: 0 }}
-          animate={isInView ? { x: 0, opacity: 1 } : {}}
-          transition={{
-            duration: 1,
-            delay: 1,
-            type: "spring",
-            stiffness: 250,
-            damping: 10,
-          }}
+        variants={imageAnimationVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
           <Image
             src={"/assets/profile.jpg"}
