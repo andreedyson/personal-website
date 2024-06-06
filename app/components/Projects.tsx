@@ -28,7 +28,7 @@ function Projects() {
       id="projects"
       className="px-6 py-24 max-sm:mt-10 md:px-16 xl:px-40"
     >
-      <div className="flex flex-col items-center gap-10">
+      <div className="flex flex-col items-center gap-10 text-center">
         {/* Projects Header */}
         <motion.div
           ref={ref}
