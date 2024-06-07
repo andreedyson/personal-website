@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="relative">
         {/* Desktop Navigation Bar */}
         <div className="hidden justify-center md:flex">
-          <nav className="flex items-center gap-12 rounded-full bg-dark-navbar px-[40px] py-2 text-base text-white">
+          <nav className="flex items-center gap-12  rounded-full bg-dark-navbar px-[40px] py-2 text-base text-white shadow-[0px_0px_10px_0px_rgba(255,255,255,0.2)]">
             <a href="/">
               <Image
                 src={"/assets/logo.png"}
