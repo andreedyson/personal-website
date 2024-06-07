@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [openNav, setOpenNav] = useState(false);
+  const [openNav, setOpenNav] = useState<boolean>(false);
 
   const handleOpenNav = () => {
     setOpenNav((prev) => !prev);
@@ -43,7 +43,7 @@ export default function Navbar() {
           </nav>
         </div>
         {/* Mobile Navigation Bar */}
-        <div className="flex items-center justify-between bg-dark-navbar p-6 text-white md:hidden">
+        <div className="flex items-center justify-between bg-dark-navbar px-6 py-3 text-white md:hidden">
           <div>
             <a href="/">
               <Image
@@ -58,7 +58,7 @@ export default function Navbar() {
             {openNav ? <X size={32} /> : <Menu size={32} />}
           </div>
           <div
-            className={`fixed right-0 top-[88px] h-full w-[70%] bg-[#122540] p-10 transition-transform duration-300 ease-in-out ${
+            className={`fixed right-0 top-[67px] h-full w-[70%] bg-[#122540] p-10 transition-transform duration-300 ease-in-out ${
               openNav
                 ? "translate-x-0 shadow-md shadow-black"
                 : "translate-x-full"
