@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SparklesCore } from "./ui/sparkles";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { ChevronsDown } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -12,6 +13,111 @@ export default function Hero() {
       id="home"
       className="relative flex h-[89vh] w-full flex-col items-center justify-center py-48 md:mt-10"
     >
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.2 }}
+      >
+        <motion.div
+          animate={{
+            y: ["0%", "-20%", "0%"],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-40 left-10 flex size-12 items-center justify-center rounded-md bg-white/40 md:left-8 md:top-60 lg:left-12 lg:size-20 xl:left-60"
+        >
+          <Image
+            src={"/assets/stacks/nextjs.svg"}
+            width={56}
+            height={56}
+            alt="Next.js"
+            className="size-8 lg:size-12"
+          />
+        </motion.div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5 }}
+      >
+        <motion.div
+          animate={{
+            y: ["0%", "-20%", "0%"],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-40 left-28 flex size-12 items-center justify-center rounded-md bg-white/40 md:bottom-72 md:left-32 lg:bottom-60 lg:left-[200px] lg:size-20 xl:left-[400px]"
+        >
+          <Image
+            src={"/assets/stacks/typescript.svg"}
+            width={56}
+            height={56}
+            alt="TypeScript"
+            className="size-8 lg:size-12"
+          />
+        </motion.div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.8 }}
+      >
+        <motion.div
+          animate={{
+            y: ["0%", "-20%", "0%"],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-40 right-28 flex size-12 items-center justify-center rounded-md bg-white/40 md:right-8 md:top-60 lg:right-12 lg:size-20 xl:right-60"
+        >
+          <Image
+            src={"/assets/stacks/mongodb.svg"}
+            width={56}
+            height={56}
+            alt="MongoDB"
+            className="size-8 lg:size-12"
+          />
+        </motion.div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3.1 }}
+      >
+        <motion.div
+          animate={{
+            y: ["0%", "-20%", "0%"],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-40 right-10 flex size-12 items-center justify-center rounded-md bg-white/40 md:bottom-72 md:right-32 lg:bottom-60 lg:right-[200px] lg:size-20 xl:right-[400px]"
+        >
+          <Image
+            src={"/assets/stacks/tailwindcss.svg"}
+            width={56}
+            height={56}
+            alt="Tailwind"
+            className="size-8 lg:size-12"
+          />
+        </motion.div>
+      </motion.div>
+
       <div className="absolute inset-0 h-screen w-full lg:-top-40 lg:h-[110vh]">
         <SparklesCore
           background="transparent"
