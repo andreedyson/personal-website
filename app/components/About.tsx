@@ -19,7 +19,7 @@ export default function About() {
       x: 0,
       transition: {
         duration: 1,
-        delay: 1,
+        delay: 0.8,
         type: "spring",
         stiffness: 250,
         damping: 10,
@@ -28,7 +28,7 @@ export default function About() {
   };
 
   const imageAnimationVariants = {
-     hidden: {
+    hidden: {
       opacity: 0,
       x: 30,
     },
@@ -37,40 +37,42 @@ export default function About() {
       x: 0,
       transition: {
         duration: 1,
-        delay: 1,
+        delay: 0.8,
         type: "spring",
         stiffness: 250,
         damping: 10,
       },
     },
-  }
+  };
 
   return (
     <section
       id="about"
-      className="flex flex-col justify-center px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
+      className="relative flex h-full flex-col justify-center px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
     >
+      {/* Dot Background */}
+      <div>
+        <div className="absolute left-0 top-0 -z-10 flex h-full w-full  items-center justify-center bg-dark-bg bg-dot-white/[0.3] dark:bg-black dark:bg-dot-white/[0.2]">
+          {/* Radial gradient for the container to give a faded look */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-dark-bg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        </div>
+      </div>
       <div className="flex flex-col items-center justify-between max-xl:gap-8 lg:flex-row xl:gap-12">
         {/* About Header */}
-        <motion.div
-          ref={ref}
-          variants={headerPopupAnimationVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div ref={ref}>
           <motion.div
-            initial={{ y: -80, opacity: 0 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1.2 }}
+            variants={headerPopupAnimationVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
           >
-            <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+            <h2 className="z-50 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
               About Me
             </h2>
           </motion.div>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
             className="relative mt-2"
           >
             <div className="absolute left-0 top-0 h-[5px] w-1/4 bg-gradient-to-r from-main-blue via-transparent to-transparent" />
@@ -119,10 +121,10 @@ export default function About() {
               see later below.
             </p>
           </motion.div>
-        </motion.div>
+        </div>
 
         <motion.div
-        variants={imageAnimationVariants}
+          variants={imageAnimationVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
