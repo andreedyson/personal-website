@@ -28,8 +28,15 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center px-6 py-24 text-white max-sm:mt-10 md:px-16 xl:px-40"
+      className="relative flex flex-col items-center px-6 py-24 text-white md:px-16 xl:px-40"
     >
+      {/* Dot Background */}
+      <div>
+        <div className="absolute left-0 top-0 -z-10 flex h-full w-full  items-center justify-center bg-dark-bg bg-dot-main-blue/[0.5] dark:bg-black dark:bg-dot-white/[0.2]">
+          {/* Radial gradient for the container to give a faded look */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-dark-bg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        </div>
+      </div>
       <motion.div
         ref={ref}
         variants={popupAnimationVariants}
@@ -55,9 +62,9 @@ function Contact() {
         </div>
 
         <div className="mt-20 flex items-center gap-8">
-          <div className="h-[3px] w-24 rounded-full bg-gray-font md:w-40" />
+          <div className="h-[3px] w-24 rounded-full bg-gray-font md:w-64" />
           <p className="font-bold text-gray-font">OR</p>
-          <div className="h-[3px] w-24 rounded-full bg-gray-font md:w-40" />
+          <div className="h-[3px] w-24 rounded-full bg-gray-font md:w-64" />
         </div>
 
         <div className="mt-20">

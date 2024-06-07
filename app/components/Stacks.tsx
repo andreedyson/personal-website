@@ -19,7 +19,7 @@ function Stacks() {
   const stackStaggerAnimationVariants = {
     hidden: {
       opacity: 0,
-      x: -100
+      x: -100,
     },
     visible: (index: number) => ({
       opacity: 1,
@@ -27,14 +27,20 @@ function Stacks() {
       transition: {
         delay: 1 + index * 0.08,
       },
-    })
-  }
+    }),
+  };
 
   return (
     <section
       id="stacks"
-      className="flex flex-col items-center px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
+      className="relative flex h-full flex-col items-center px-6 py-24 md:px-16 lg:h-screen xl:px-40"
     >
+      <div>
+        <div className="absolute left-0 top-0 -z-10 flex h-full w-full items-center justify-center bg-dark-bg bg-grid-white/[0.03] dark:bg-black dark:bg-grid-white/[0.2]">
+          {/* Radial gradient for the container to give a faded look */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-dark-bg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
+        </div>
+      </div>
       <div className="flex w-full flex-col items-center gap-6 md:gap-10">
         {/* Stack Header */}
         <motion.div
@@ -54,9 +60,7 @@ function Stacks() {
         </motion.div>
 
         {/* Stacks Grid */}
-        <motion.div
-          className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
-        >
+        <motion.div className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4">
           {stackData.map((stack, index) => (
             <motion.div
               key={stack.name}

@@ -26,7 +26,7 @@ function ProjectCard({
     <article className="max-lg:rounded-lg max-lg:shadow-2xl max-lg:shadow-blue-500/40">
       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
         {/* Projects Image */}
-        <div className={`w-full ${position !== "left" && "order-2"}`}>
+        <div className={`w-full ${position !== "left" && "md:order-2"}`}>
           <Image
             src={imgUrl}
             width={400}
@@ -49,14 +49,14 @@ function ProjectCard({
               <a
                 href={repoUrl}
                 target="_blank"
-                className="text-lg text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
+                className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
               >
                 <FaGithub />
               </a>
               <a
                 href={demoUrl}
                 target="_blank"
-                className="text-lg text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
+                className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
               >
                 <FaArrowUpRightFromSquare />
               </a>
@@ -76,7 +76,7 @@ function ProjectCard({
                   src={stack.imgPath}
                   width={24}
                   height={24}
-                  alt="react"
+                  alt={stack.name}
                   title={stack.name}
                   className="size-5 cursor-pointer rounded-full md:size-6"
                 />
