@@ -32,7 +32,7 @@ function ProjectCard({
             width={400}
             height={200}
             alt={title}
-            className="h-[150px] w-full rounded-t-lg bg-center object-cover sm:min-h-[200px] md:h-80 md:rounded-lg lg:shadow-lg lg:shadow-white/20"
+            className="h-[150px] w-full rounded-t-lg bg-gray-900 bg-center object-contain sm:min-h-[200px] md:h-80 md:rounded-lg lg:shadow-lg lg:shadow-white/20"
           />
         </div>
 

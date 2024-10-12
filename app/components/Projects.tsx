@@ -38,10 +38,7 @@ function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="relative h-full px-6 py-24 md:px-16 xl:px-40"
-    >
+    <section id="projects" className="section relative h-full">
       <div className="">
         <div className="absolute left-0 top-0 -z-10 flex h-full w-full items-center justify-center bg-dark-bg bg-grid-small-white/[0.3] dark:bg-black dark:bg-grid-small-white/[0.2]">
           {/* Radial gradient for the container to give a faded look */}

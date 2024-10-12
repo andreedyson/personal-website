@@ -28,7 +28,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex flex-col items-center px-6 py-24 text-white md:px-16 xl:px-40"
+      className="section relative flex flex-col items-center"
     >
       {/* Dot Background */}
       <div>

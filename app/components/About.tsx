@@ -48,7 +48,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative flex h-full flex-col justify-center px-6 py-24 max-sm:mt-10 md:px-16 lg:h-screen xl:px-40"
+      className="section relative flex h-full flex-col justify-center max-sm:mt-10"
     >
       {/* Dot Background */}
       <div>
@@ -129,7 +129,7 @@ export default function About() {
           animate={isInView ? "visible" : "hidden"}
         >
           <Image
-            src={"/assets/profile.jpg"}
+            src={"/assets/profile_andre.png"}
             width={400}
             height={400}
             alt="Personal Photo"

@@ -32,6 +32,22 @@ export const stackData = [
     imgUrl: "/assets/stacks/github.svg",
   },
   {
+    name: "shadcn",
+    imgUrl: "/assets/stacks/shadcn.svg",
+  },
+  {
+    name: "Prisma",
+    imgUrl: "/assets/stacks/prisma.svg",
+  },
+  {
+    name: "PostgreSQL",
+    imgUrl: "/assets/stacks/postgre.svg",
+  },
+  {
+    name: "Vercel",
+    imgUrl: "/assets/stacks/vercel.svg",
+  },
+  {
     name: "Framer Motion",
     imgUrl: "/assets/stacks/framer.svg",
   },
@@ -70,13 +86,13 @@ export const projectsData = [
       },
     ],
     repoUrl: "https://github.com/andreedyson/fintrack",
-    demoUrl: "https://fintrack-andre.vercel.app/",
+    demoUrl: "https://fintrack.vercel.app/",
   },
   {
-    title: "CineReel",
+    title: "StockifyHub",
     description:
-      "Next.js and MongoDB-powered movie database web app with shadcn for seamless browsing, adding favorites, writing reviews, accessing movie details and giving ratings.",
-    imgUrl: "/assets/projects/cinereel.webp",
+      "StockifyHub is an inventory management web app built with Next.js, PostgreSQL, Prisma, and Tailwind CSS. It simplifies stock tracking and management with role-based access control, real-time updates, and a modern, responsive design.",
+    imgUrl: "/assets/projects/stockify_landing.webp",
     stacks: [
       {
         name: "Next.js",
@@ -95,12 +111,16 @@ export const projectsData = [
         imgPath: "/assets/stacks/shadcn.svg",
       },
       {
-        name: "MongoDB",
-        imgPath: "/assets/stacks/mongodb.svg",
+        name: "PostgreSQL",
+        imgPath: "/assets/stacks/postgre.svg",
+      },
+      {
+        name: "Prisma",
+        imgPath: "/assets/stacks/prisma.svg",
       },
     ],
-    repoUrl: "https://github.com/andreedyson/cinereel",
-    demoUrl: "https://cinereel.vercel.app/",
+    repoUrl: "https://github.com/andreedyson/stockify-hub",
+    demoUrl: "https://stockify-hub.vercel.app/",
   },
   {
     title: "Agenone",
