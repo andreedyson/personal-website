@@ -25,7 +25,7 @@ function Stacks() {
       opacity: 1,
       x: 0,
       transition: {
-        delay: 1 + index * 0.08,
+        delay: 1 + index * 0.2,
       },
     }),
   };

@@ -83,10 +83,10 @@ export default function Hero() {
           className="absolute bottom-40 right-28 flex size-12 items-center justify-center rounded-md bg-white/40 md:right-8 md:top-60 lg:right-12 lg:size-20 xl:right-60"
         >
           <Image
-            src={"/assets/stacks/mongodb.svg"}
+            src={"/assets/stacks/figma.svg"}
             width={56}
             height={56}
-            alt="MongoDB"
+            alt="Figma"
             className="size-8 lg:size-12"
           />
         </motion.div>
@@ -166,7 +166,7 @@ export default function Hero() {
             Front-End Web Developer
           </span>{" "}
           from Indonesia. Specialized in using Next.js, TypeScript, TailwindCSS,
-          MongoDB.
+          Figma.
         </motion.p>
 
         <motion.a
