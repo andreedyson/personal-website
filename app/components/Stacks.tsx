@@ -33,7 +33,7 @@ function Stacks() {
   return (
     <section
       id="stacks"
-      className="section relative flex h-full flex-col items-center lg:h-screen"
+      className="section relative flex h-full flex-col items-center"
     >
       <div>
         <div className="absolute left-0 top-0 -z-10 flex h-full w-full items-center justify-center bg-dark-bg bg-grid-white/[0.03] dark:bg-black dark:bg-grid-white/[0.2]">

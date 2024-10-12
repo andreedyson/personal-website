@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProjectCard from "./card/ProjectCard";
 import { headerPopupAnimationVariants, projectsData } from "@/index";
+import Link from "next/link";
 
 function Projects() {
   const ref = useRef(null);
@@ -67,7 +68,7 @@ function Projects() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 1 }}
-          className="flex flex-col gap-12"
+          className="flex flex-col gap-12 xl:gap-32"
         >
           {projectsData.map((project, index) => (
             <motion.div
@@ -96,11 +97,21 @@ function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-16 lg:mt-32"
+          className="mt-16 space-y-2 lg:mt-32"
         >
           <h3 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             And <span className="text-main-blue">more</span> to come...
           </h3>
+          <p className="text-sm">
+            or check out my{" "}
+            <Link
+              href={"https://github.com/andreedyson?tab=repositories"}
+              target="_blank"
+              className="text-main-blue underline"
+            >
+              GitHub repositories
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>
