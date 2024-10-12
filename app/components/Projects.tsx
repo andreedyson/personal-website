@@ -66,7 +66,7 @@ function Projects() {
         {/* Projects Card */}
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
           className="flex flex-col gap-12 xl:gap-20"
         >
