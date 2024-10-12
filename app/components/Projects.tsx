@@ -66,9 +66,9 @@ function Projects() {
         {/* Projects Card */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 1 }}
-          className="flex flex-col gap-12 xl:gap-32"
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-col gap-12 xl:gap-20"
         >
           {projectsData.map((project, index) => (
             <motion.div
@@ -92,6 +92,7 @@ function Projects() {
           ))}
         </motion.div>
 
+        {/* More To Come Section */}
         <motion.div
           variants={scaleUpAnimationVariants}
           initial="hidden"

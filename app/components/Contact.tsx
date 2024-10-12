@@ -28,7 +28,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="section relative flex flex-col items-center"
+      className="section relative flex flex-col items-center pt-16"
     >
       {/* Dot Background */}
       <div>
@@ -50,9 +50,10 @@ function Contact() {
             Let&apos;s Chat!
           </h2>
           <p className="w-full tracking-wide text-slate-300 md:max-w-[550px]">
-            Looking forward to connect with fellow developers, potential
-            clients, and anyone interested in my work. Whether you have a
-            project in mind or just want to say hello, feel free to reach out.
+            I’m excited to connect with fellow developers, potential clients,
+            and anyone curious about my work. If you&apos;re interested in
+            collaborating on a project or simply want to chat, don&apos;t
+            hesitate to get in touch!
           </p>
           <a href="mailto:andreedyson31@gmail.com">
             <button className="mt-4 rounded-lg bg-transparent px-6 py-3 font-semibold outline-dashed outline-main-blue duration-200 hover:-translate-y-1.5 hover:bg-main-blue hover:shadow-[0px_8px_0px_0px_rgba(69,73,172,0.7)] hover:outline">
@@ -62,9 +63,9 @@ function Contact() {
         </div>
 
         <div className="mt-20 flex items-center gap-8">
-          <div className="h-[3px] w-24 rounded-full bg-gray-font md:w-64" />
+          <div className="h-px w-24 rounded-full bg-gray-font md:w-64" />
           <p className="font-bold text-gray-font">OR</p>
-          <div className="h-[3px] w-24 rounded-full bg-gray-font md:w-64" />
+          <div className="h-px w-24 rounded-full bg-gray-font md:w-64" />
         </div>
 
         <div className="mt-20">
