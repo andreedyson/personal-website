@@ -86,7 +86,7 @@ export const projectsData = [
       },
     ],
     repoUrl: "https://github.com/andreedyson/fintrack",
-    demoUrl: "https://fintrack.vercel.app/",
+    demoUrl: "https://fintrack-andre.vercel.app/",
   },
   {
     title: "StockifyHub",

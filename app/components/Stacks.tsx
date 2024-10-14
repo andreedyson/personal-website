@@ -72,7 +72,7 @@ function Stacks() {
             >
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger className="flex h-[90px] w-[140px] items-center justify-center rounded-md bg-gray-900/40 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-3 md:h-[100px] md:w-[200px] xl:h-[120px] xl:w-[260px]">
+                  <TooltipTrigger className="flex h-[90px] w-[150px] items-center justify-center rounded-md bg-gray-900/40 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-3 md:h-[100px] md:w-[200px] xl:h-[120px] xl:w-[260px]">
                     <Image
                       src={stack.imgUrl}
                       width={64}
