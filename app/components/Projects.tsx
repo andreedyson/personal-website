@@ -19,7 +19,7 @@ function Projects() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: index * 0.4,
+        delay: index * 0.6,
       },
     }),
   };
@@ -33,7 +33,7 @@ function Projects() {
       opacity: 1,
       scale: 1,
       transition: {
-        delay: 0.5,
+        delay: 0.7,
       },
     },
   };
@@ -98,7 +98,7 @@ function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-16 space-y-2 lg:mt-32"
+          className="mt-16 space-y-2 lg:mt-20"
         >
           <h3 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             And <span className="text-main-blue">more</span> to come...

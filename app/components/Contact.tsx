@@ -49,7 +49,7 @@ function Contact() {
           <h2 className="text-4xl font-bold uppercase tracking-wider md:text-5xl lg:text-6xl">
             Let&apos;s Chat!
           </h2>
-          <p className="w-full tracking-wide text-slate-300 md:max-w-[550px]">
+          <p className="w-full text-sm tracking-wide text-slate-300 md:max-w-[550px] md:text-base">
             I’m excited to connect with fellow developers, potential clients,
             and anyone curious about my work. If you&apos;re interested in
             collaborating on a project or simply want to chat, don&apos;t
