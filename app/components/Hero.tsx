@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { SparklesCore } from "./ui/sparkles";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { ChevronsDown } from "lucide-react";
-import Image from "next/image";
 
 export default function Hero() {
   return (
