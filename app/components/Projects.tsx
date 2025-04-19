@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProjectCard from "./card/ProjectCard";
-import { headerPopupAnimationVariants, projectsData } from "@/index";
+import { headerPopupAnimationVariants, PROJECTS_DATA } from "@/index";
 import Link from "next/link";
 
 function Projects() {
@@ -70,7 +70,7 @@ function Projects() {
           transition={{ delay: 0.8 }}
           className="flex flex-col gap-12 xl:gap-20"
         >
-          {projectsData.map((project, index) => (
+          {PROJECTS_DATA.map((project, index) => (
             <motion.div
               key={project.title}
               variants={fadeInAnimationVariants}

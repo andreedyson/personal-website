@@ -65,7 +65,7 @@ export const TECH_STACKS = [
   },
 ];
 
-export const projectsData = [
+export const PROJECTS_DATA = [
   {
     title: "FinTrack",
     description:

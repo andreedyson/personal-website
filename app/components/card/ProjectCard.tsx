@@ -25,17 +25,17 @@ function ProjectCard({
 }: Props) {
   return (
     <article className="max-lg:rounded-lg max-lg:shadow-2xl max-lg:shadow-blue-500/40">
-      <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:place-items-center lg:gap-4">
         {/* Projects Image */}
         <div
-          className={`relative aspect-video w-full lg:w-[550px] ${position !== "left" && "lg:order-2"}`}
+          className={`relative aspect-video w-full ${position !== "left" && "lg:order-2"}`}
         >
           <Image
             src={imgUrl}
             width={400}
             height={200}
             alt={title}
-            className="h-full w-full rounded-t-lg bg-gray-900 bg-center object-cover md:rounded-lg lg:h-80 lg:shadow-lg lg:shadow-white/20"
+            className="h-full w-full rounded-t-lg bg-gray-900 object-cover md:rounded-lg lg:h-80 lg:shadow-lg lg:shadow-white/20"
           />
         </div>
 
