@@ -67,11 +67,15 @@ export const TECH_STACKS = [
 
 export const PROJECTS_DATA = [
   {
-    title: "FinTrack",
+    title: "TechDome",
     description:
-      "A finance tracker web app with Next.js, MongoDB, and TypeScript. Easily manage accounts, track income, expenses, transfers, and categories with secure NextAuth. Take control of your finances effortlessly!",
-    imgUrl: "/assets/projects/fintrack.webp",
+      "Tech Dome is a modern e-commerce interface designed for tech platforms. Utilizing Next.js for server-side rendering, Tailwind CSS for rapid UI development, and Zustand for state management, it offers a seamless and efficient shopping experience.",
+    imgUrl: "/assets/projects/tech-dome.webp",
     stacks: [
+      {
+        name: "Next.js",
+        imgPath: "/assets/stacks/nextjs.svg",
+      },
       {
         name: "React",
         imgPath: "/assets/stacks/react.svg",
@@ -81,12 +85,20 @@ export const PROJECTS_DATA = [
         imgPath: "/assets/stacks/tailwindcss.svg",
       },
       {
-        name: "GSAP",
-        imgPath: "/assets/stacks/gsap.svg",
+        name: "PostgreSQL",
+        imgPath: "/assets/stacks/postgre.svg",
+      },
+      {
+        name: "Prisma",
+        imgPath: "/assets/stacks/prisma.svg",
+      },
+      {
+        name: "Supabase",
+        imgPath: "/assets/stacks/supabase.svg",
       },
     ],
-    repoUrl: "https://github.com/andreedyson/fintrack",
-    demoUrl: "https://fintrack-andre.vercel.app/",
+    repoUrl: "https://github.com/andreedyson/tech-dome",
+    demoUrl: "https://tech-dome-andre.vercel.app/",
   },
   {
     title: "StockifyHub",
@@ -121,6 +133,28 @@ export const PROJECTS_DATA = [
     ],
     repoUrl: "https://github.com/andreedyson/stockify-hub",
     demoUrl: "https://stockify-hub.vercel.app/",
+  },
+  {
+    title: "FinTrack",
+    description:
+      "A finance tracker web app with Next.js, MongoDB, and TypeScript. Easily manage accounts, track income, expenses, transfers, and categories with secure NextAuth. Take control of your finances effortlessly!",
+    imgUrl: "/assets/projects/fintrack.webp",
+    stacks: [
+      {
+        name: "React",
+        imgPath: "/assets/stacks/react.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "GSAP",
+        imgPath: "/assets/stacks/gsap.svg",
+      },
+    ],
+    repoUrl: "https://github.com/andreedyson/fintrack",
+    demoUrl: "https://fintrack-andre.vercel.app/",
   },
   {
     title: "Agenone",
