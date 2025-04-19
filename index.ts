@@ -1,4 +1,4 @@
-export const stackData = [
+export const TECH_STACKS = [
   {
     name: "Javascript",
     imgUrl: "/assets/stacks/javascript.svg",
@@ -52,8 +52,8 @@ export const stackData = [
     imgUrl: "/assets/stacks/framer.svg",
   },
   {
-    name: "GSAP",
-    imgUrl: "/assets/stacks/gsap.svg",
+    name: "Supabase",
+    imgUrl: "/assets/stacks/supabase.svg",
   },
   {
     name: "Figma",

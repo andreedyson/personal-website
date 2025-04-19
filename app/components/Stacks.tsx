@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { headerPopupAnimationVariants, stackData } from "@/index";
+import { headerPopupAnimationVariants, TECH_STACKS } from "@/index";
 import Image from "next/image";
 
 import {
@@ -61,7 +61,7 @@ function Stacks() {
 
         {/* Stacks Grid */}
         <motion.div className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4">
-          {stackData.map((stack, index) => (
+          {TECH_STACKS.map((stack, index) => (
             <motion.div
               key={stack.name}
               variants={stackStaggerAnimationVariants}
@@ -72,7 +72,7 @@ function Stacks() {
             >
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger className="flex h-[90px] w-[150px] items-center justify-center rounded-md bg-gray-900/40 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-3 md:h-[100px] md:w-[200px] xl:h-[120px] xl:w-[260px]">
+                  <TooltipTrigger className="flex h-[90px] w-[150px] flex-col items-center justify-center rounded-md bg-gray-900/40 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-3 md:h-[100px] md:w-[200px] xl:h-[120px] xl:w-[260px]">
                     <Image
                       src={stack.imgUrl}
                       width={64}
