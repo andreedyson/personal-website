@@ -130,8 +130,8 @@ export default function About() {
         >
           <Image
             src={"/assets/profile_andre.png"}
-            width={400}
-            height={400}
+            width={1000}
+            height={1000}
             alt="Personal Photo"
             className="size-[300px] rounded-full border-8 border-main-blue object-cover object-right [box-shadow:_20px_5px_2px_rgb(0_0_0_/_100%)] md:size-[400px] 2xl:-translate-x-12"
           />
