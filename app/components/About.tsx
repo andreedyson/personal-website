@@ -87,7 +87,7 @@ export default function About() {
           >
             <p>
               Hi, thanks for taking your time visiting my portfolio website! My
-              name is Andre Edyson, I&apos;m 19 years old and I love making
+              name is Andre Edyson, I&apos;m 20 years old and I love making
               websites.
             </p>
             <p>
