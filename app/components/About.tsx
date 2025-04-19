@@ -83,7 +83,7 @@ export default function About() {
             variants={descriptionAnimationVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="mt-6 max-w-[550px] space-y-4 text-sm text-gray-font md:space-y-8 md:text-base"
+            className="mt-6 max-w-[550px] space-y-4 text-sm text-slate-300 md:space-y-8 md:text-base"
           >
             <p>
               Hi, thanks for taking your time visiting my portfolio website! My
@@ -130,8 +130,8 @@ export default function About() {
         >
           <Image
             src={"/assets/profile_andre.png"}
-            width={1000}
-            height={1000}
+            width={1200}
+            height={1200}
             alt="Personal Photo"
             className="size-[300px] rounded-full border-8 border-main-blue object-cover object-right [box-shadow:_20px_5px_2px_rgb(0_0_0_/_100%)] md:size-[400px] 2xl:-translate-x-12"
           />
