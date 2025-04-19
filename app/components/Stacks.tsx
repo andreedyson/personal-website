@@ -42,7 +42,7 @@ function Stacks() {
         </div>
       </div>
       <div className="flex w-full flex-col items-center gap-6 md:gap-10">
-        {/* Stack Header */}
+        {/* Stacks Header */}
         <motion.div
           ref={ref}
           variants={headerPopupAnimationVariants}

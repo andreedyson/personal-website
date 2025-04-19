@@ -2,6 +2,7 @@ import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -26,33 +27,35 @@ function ProjectCard({
     <article className="max-lg:rounded-lg max-lg:shadow-2xl max-lg:shadow-blue-500/40">
       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-6">
         {/* Projects Image */}
-        <div className={`w-full ${position !== "left" && "md:order-2"}`}>
+        <div
+          className={`relative aspect-video w-full lg:w-[550px] ${position !== "left" && "lg:order-2"}`}
+        >
           <Image
             src={imgUrl}
             width={400}
             height={200}
             alt={title}
-            className="h-[150px] w-full rounded-t-lg bg-gray-900 bg-center object-contain sm:min-h-[200px] md:h-80 md:rounded-lg lg:shadow-lg lg:shadow-white/20"
+            className="h-full w-full rounded-t-lg bg-gray-900 bg-center object-cover md:rounded-lg lg:h-80 lg:shadow-lg lg:shadow-white/20"
           />
         </div>
 
         {/* Projects Details */}
-        <div className="flex h-52 flex-col justify-center border-dark-blue bg-dark-navbar px-6 py-4 text-white max-lg:rounded-b-lg lg:rounded-lg lg:border-2 lg:shadow-[5px_5px_0px_0px_rgba(69,73,172)]">
+        <div className="flex h-52 flex-col justify-center border-dark-blue bg-dark-navbar px-6 py-4 text-white max-lg:rounded-b-lg lg:max-w-lg lg:rounded-lg lg:border-2 lg:shadow-[5px_5px_0px_0px_rgba(69,73,172)] 2xl:max-w-xl">
           {/* Project Title */}
           <div className="flex items-center justify-between">
-            <a href={demoUrl} target="_blank">
+            <Link href={demoUrl} target="_blank">
               <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
                 {title}
               </h3>
-            </a>
+            </Link>
             <div className="flex items-center gap-2 md:gap-4">
-              <a
+              <Link
                 href={repoUrl}
                 target="_blank"
                 className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
               >
                 <FaGithub />
-              </a>
+              </Link>
               <a
                 href={demoUrl}
                 target="_blank"
