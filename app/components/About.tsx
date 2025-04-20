@@ -86,9 +86,9 @@ export default function About() {
             className="mt-6 max-w-[550px] space-y-4 text-sm text-slate-300 md:space-y-8 md:text-base"
           >
             <p>
-              Hi, thanks for taking your time visiting my portfolio website! My
-              name is Andre Edyson, I&apos;m 20 years old and I love making
-              websites.
+              Hi, thanks for taking your time visiting my portfolio website!{" "}
+              <br /> My name is Andre Edyson, I&apos;m 20 years old and I love
+              making websites.
             </p>
             <p>
               My web development journey started when I was a kid. As a 10 years

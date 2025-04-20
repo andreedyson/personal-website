@@ -8,7 +8,8 @@ function Footer() {
         target="_blank"
         className=" text-gray-font duration-200 hover:text-white hover:underline hover:underline-offset-8"
       >
-        Created and Crafted by <span>Andre Edyson</span>
+        © {new Date().getFullYear()}. Created and Crafted by{" "}
+        <span>Andre Edyson</span>
       </a>
     </footer>
   );
