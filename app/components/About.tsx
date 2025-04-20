@@ -101,24 +101,23 @@ export default function About() {
               <span className="font-semibold text-white underline">
                 exploring the internet
               </span>
-              . Fast forward to 8th grade, I had a computer subject in my class
-              and it was the first time I was introduced to{" "}
+              . What started with copying{" "}
               <span className="font-semibold text-orange-500">HTML</span> and{" "}
-              <span className="font-semibold text-sky-400">CSS</span>. This
-              marked the beginning of my coding journey!
+              <span className="font-semibold text-sky-400">CSS</span>. templates
+              for fun slowly turned into a passion for building interactive and
+              useful interfaces.
             </p>
             <p>
-              I dived into{" "}
-              <span className="font-semibold text-orange-500">HTML</span>,{" "}
-              <span className="font-semibold text-sky-400">CSS</span>, and{" "}
-              <span className="font-semibold text-yellow-500">Javascript</span>{" "}
-              during my high school year and gradually progressing into advanced
-              technologies like{" "}
-              <span className="font-semibold text-sky-500">React</span>,{" "}
-              <span className="font-semibold text-gray-200">Next.js,</span>{" "}
-              <span className="font-semibold text-blue-400">TailwindCSS</span>.
-              I&apos;ve completed several projects along the way that you will
-              see later below.
+              That curiosity grew into a skillset — and now, I build modern web
+              applications using tools like{" "}
+              <span className="font-semibold text-slate-200">Next.js</span>,{" "}
+              <span className="font-semibold text-yellow-400">Javascript</span>,{" "}
+              <span className="font-semibold text-sky-500">Typescript</span> and{" "}
+              <span className="font-semibold text-sky-300">TailwindCSS</span>. I
+              love solving problems through clean UI and thoughtful code.
+              Whether it&apos;s a dashboard, landing page, or internal tool — my
+              goal is always the same: make it fast, functional, and visually
+              engaging.
             </p>
           </motion.div>
         </div>
