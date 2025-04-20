@@ -41,7 +41,7 @@ export default function Hero() {
         <TextGenerateEffect
           words="Andre Edyson"
           delay={0.3}
-          className="text-4xl [text-shadow:_3px_3px_0_rgb(68_73_172_/_100%)] md:text-5xl lg:text-7xl"
+          className="text-5xl [text-shadow:_3px_3px_0_rgb(68_73_172_/_100%)] md:text-6xl lg:text-7xl"
         />
         <motion.p
           className="max-w-72 text-center text-xs leading-relaxed tracking-wide md:max-w-[400px] md:text-sm lg:text-base"

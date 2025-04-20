@@ -69,10 +69,11 @@ function Stacks() {
               animate={isInView ? "visible" : "hidden"}
               viewport={{ once: true }}
               custom={index}
+              className="w-full"
             >
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger className="flex h-[90px] w-[150px] flex-col items-center justify-center rounded-md bg-gray-900/40 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-3 md:h-[100px] md:w-[200px] xl:h-[120px] xl:w-[260px]">
+                  <TooltipTrigger className="flex w-full flex-col items-center justify-center rounded-md bg-gray-900/40 py-6 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-2">
                     <Image
                       src={stack.imgUrl}
                       width={64}
