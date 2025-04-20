@@ -46,8 +46,8 @@ function Contact() {
       >
         {/* Contact Header */}
         <div className="flex w-full flex-col items-center gap-6 text-center">
-          <h2 className="text-4xl font-bold uppercase tracking-wider md:text-5xl lg:text-6xl">
-            Let&apos;s Chat!
+          <h2 className="text-4xl font-bold uppercase tracking-wide md:text-5xl lg:text-6xl">
+            Let&apos;s Connect!
           </h2>
           <p className="w-full text-sm tracking-wide text-slate-300 md:max-w-[550px] md:text-base">
             I’m excited to connect with fellow developers, potential clients,

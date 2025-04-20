@@ -48,14 +48,15 @@ function Stacks() {
           variants={headerPopupAnimationVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="w-full space-y-4 text-center md:max-w-[413px]"
+          className="w-full space-y-4 text-center md:max-w-md"
         >
           <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             Tech Stacks
           </h2>
           <p className="w-full text-sm text-gray-font md:text-base">
-            Here are some of the tech stack I&apos;ve used during my web
-            development journey.
+            A collection of tools and technologies I use to build fast, modern,
+            and responsive web applications — from frontend frameworks to
+            styling systems and backend integrations.
           </p>
         </motion.div>
 

@@ -57,13 +57,15 @@ export default function Projects() {
           variants={headerPopupAnimationVariants}
           initial="initial"
           animate={isInView ? "visible" : "hidden"}
-          className="w-full space-y-4 text-center md:max-w-[413px]"
+          className="w-full space-y-4 text-center md:max-w-md"
         >
           <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             Projects
           </h2>
           <p className="w-full text-sm text-gray-font md:text-base">
-            Some of the frontend projects I have worked on.
+            A showcase of web projects I&apos;ve built using modern tech stacks.
+            Each one reflects my passion for clean design, interactive UI, and
+            scalable architecture.
           </p>
         </motion.div>
 
@@ -97,7 +99,7 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="mt-16 space-y-2 lg:mt-20"
+          className="mt-16 space-y-2 lg:mt-24"
         >
           <h3 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             And <span className="text-main-blue">more</span> to come...
