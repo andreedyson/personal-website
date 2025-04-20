@@ -73,7 +73,7 @@
   }
 
   .section {
-    @apply px-6 py-24 text-white md:px-16 xl:px-40 xl:py-40;
+    @apply px-6 py-24 text-white md:px-16 xl:px-40 xl:py-32;
   }
 
   ::-webkit-scrollbar {
