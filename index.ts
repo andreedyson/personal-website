@@ -141,16 +141,24 @@ export const PROJECTS_DATA = [
     imgUrl: "/assets/projects/fintrack.webp",
     stacks: [
       {
-        name: "React",
-        imgPath: "/assets/stacks/react.svg",
+        name: "Next.js",
+        imgPath: "/assets/stacks/nextjs.svg",
+      },
+      {
+        name: "Typescript",
+        imgPath: "/assets/stacks/typescript.svg",
       },
       {
         name: "Tailwind",
         imgPath: "/assets/stacks/tailwindcss.svg",
       },
       {
-        name: "GSAP",
-        imgPath: "/assets/stacks/gsap.svg",
+        name: "shadcn",
+        imgPath: "/assets/stacks/shadcn.svg",
+      },
+      {
+        name: "MongoDB",
+        imgPath: "/assets/stacks/mongodb.svg",
       },
     ],
     repoUrl: "https://github.com/andreedyson/fintrack",
