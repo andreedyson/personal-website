@@ -58,7 +58,7 @@ export default function Navbar() {
             {openNav ? <X size={32} /> : <Menu size={32} />}
           </div>
           <div
-            className={`fixed right-0 top-[67px] h-full w-[70%] bg-[#122540] p-10 transition-transform duration-300 ease-in-out ${
+            className={`fixed right-0 top-[64px] h-full w-[70%] bg-[#122540] p-10 transition-transform duration-300 ease-in-out ${
               openNav
                 ? "translate-x-0 shadow-md shadow-black"
                 : "translate-x-full"

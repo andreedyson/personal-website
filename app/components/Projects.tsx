@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import ProjectCard from "./card/ProjectCard";
 import { headerPopupAnimationVariants, PROJECTS_DATA } from "@/index";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import { useRef } from "react";
+import ProjectCard from "./card/ProjectCard";
 
 export default function Projects() {
   const ref = useRef(null);
@@ -13,19 +13,23 @@ export default function Projects() {
   // Shared spring transition
   const springTransition = {
     type: "spring",
-    stiffness: 200,
-    damping: 20,
+    stiffness: 120,
+    damping: 14,
+    mass: 0.8,
   };
 
   // Clean fade-up animation with spring
   const fadeUpVariant = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50 },
     visible: (index: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        ...springTransition,
-        delay: index * 0.15, // faster stagger
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 0.5,
+        delay: index * 0.15,
       },
     }),
   };
