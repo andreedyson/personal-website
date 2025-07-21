@@ -67,6 +67,44 @@ export const TECH_STACKS = [
 
 export const PROJECTS_DATA = [
   {
+    title: "Emploria",
+    description:
+      "Emploria is an Open Source SAP system for employee management. Supports multi-tenant, role-based access, PDF pay slip generation, and much more. Built with Next.js, Prisma, PostgreSQL, Supabase, TailwindCSS.",
+    imgUrl: "/assets/projects/emploria.png",
+    stacks: [
+      {
+        name: "Next.js",
+        imgPath: "/assets/stacks/nextjs.svg",
+      },
+      {
+        name: "React",
+        imgPath: "/assets/stacks/react.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "shadcn",
+        imgPath: "/assets/stacks/shadcn.svg",
+      },
+      {
+        name: "PostgreSQL",
+        imgPath: "/assets/stacks/postgre.svg",
+      },
+      {
+        name: "Prisma",
+        imgPath: "/assets/stacks/prisma.svg",
+      },
+      {
+        name: "Supabase",
+        imgPath: "/assets/stacks/supabase.svg",
+      },
+    ],
+    repoUrl: "https://github.com/andreedyson/emploria",
+    demoUrl: "https://emploria-ceyu.vercel.app/",
+  },
+  {
     title: "TechDome",
     description:
       "Tech Dome is a modern e-commerce interface designed for tech platforms. Utilizing Next.js for server-side rendering, Tailwind CSS for rapid UI development, and Zustand for state management, it offers a seamless and efficient shopping experience.",
