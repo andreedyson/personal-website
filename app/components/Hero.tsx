@@ -1,8 +1,20 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { SparklesCore } from "./ui/sparkles";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      delay,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  }),
+};
 
 export default function Hero() {
   return (
@@ -10,6 +22,7 @@ export default function Hero() {
       id="home"
       className="relative flex h-[80vh] w-full flex-col items-center justify-center md:mt-10 md:h-[89vh]"
     >
+      {/* Background */}
       <div className="absolute inset-0 h-screen w-full lg:-top-40 lg:h-[110vh]">
         <SparklesCore
           background="transparent"
@@ -21,37 +34,37 @@ export default function Hero() {
         />
       </div>
 
+      {/* Content */}
       <div className="flex w-full flex-col items-center justify-center text-white">
         <motion.h3
           className="text-base font-semibold md:text-lg lg:text-xl"
-          variants={{
-            hidden: { opacity: 0, y: 50, scale: 0.5 },
-            visible: { opacity: 1, y: 0, scale: 1 },
-          }}
+          variants={fadeUp}
           initial="hidden"
           animate="visible"
-          transition={{
-            type: "spring",
-            stiffness: 250,
-            damping: 10,
-          }}
+          custom={0.1}
         >
           Hello everyone, I&apos;m
         </motion.h3>
-        <TextGenerateEffect
-          words="Andre Edyson"
-          delay={0.3}
-          className="text-5xl [text-shadow:_3px_3px_0_rgb(68_73_172_/_100%)] md:text-6xl lg:text-7xl"
-        />
-        <motion.p
-          className="max-w-72 text-center text-xs leading-relaxed tracking-wide md:max-w-[400px] md:text-sm lg:text-base"
-          variants={{
-            hidden: { opacity: 0, x: -20 },
-            visible: { opacity: 1, x: 0 },
-          }}
+
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 1.2, delay: 1, ease: "easeOut" }}
+          custom={0.4}
+        >
+          <TextGenerateEffect
+            words="Andre Edyson"
+            delay={0.3}
+            className="text-5xl [text-shadow:_3px_3px_0_rgb(68_73_172_/_100%)] md:text-6xl lg:text-7xl"
+          />
+        </motion.div>
+
+        <motion.p
+          className="max-w-72 text-center text-xs leading-relaxed tracking-wide md:max-w-[400px] md:text-sm lg:text-base"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.8}
         >
           I’m a{" "}
           <span className="font-semibold underline">
@@ -63,16 +76,13 @@ export default function Hero() {
 
         <motion.a
           href="#projects"
-          variants={{
-            hidden: { opacity: 0, y: -20 },
-            visible: { opacity: 1, y: 0 },
-          }}
+          variants={fadeUp}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
+          custom={1.2}
         >
-          <button className="group relative mb-2 mr-2 mt-4 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br  from-main-blue to-dark-blue p-0.5 text-white duration-200 hover:text-white focus:ring-4 focus:ring-main-blue group-hover:from-main-blue group-hover:to-dark-blue dark:text-black dark:focus:ring-blue-800">
-            <span className="relative flex items-center gap-2 rounded-md bg-gray-900 px-5 py-2.5 text-sm font-semibold transition-all duration-200 ease-in group-hover:bg-opacity-0 dark:bg-white md:text-base ">
+          <button className="group relative mb-2 mr-2 mt-4 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-main-blue to-dark-blue p-0.5 text-white duration-200 hover:text-white focus:ring-4 focus:ring-main-blue">
+            <span className="relative flex items-center gap-2 rounded-md bg-gray-900 px-5 py-2.5 text-sm font-semibold transition-all duration-200 ease-in group-hover:bg-opacity-0 md:text-base">
               🔗 View My Projects
             </span>
           </button>

@@ -108,14 +108,14 @@ export default function About() {
               useful interfaces.
             </p>
             <p>
-              That curiosity grew into a skillset — and now, I build modern web
+              That curiosity grew into a skillset and now, I build modern web
               applications using tools like{" "}
               <span className="font-semibold text-slate-200">Next.js</span>,{" "}
               <span className="font-semibold text-yellow-400">Javascript</span>,{" "}
               <span className="font-semibold text-sky-500">Typescript</span> and{" "}
               <span className="font-semibold text-sky-300">TailwindCSS</span>. I
               love solving problems through clean UI and thoughtful code.
-              Whether it&apos;s a dashboard, landing page, or internal tool — my
+              Whether it&apos;s a dashboard, landing page, or internal tool. My
               goal is always the same: make it fast, functional, and visually
               engaging.
             </p>

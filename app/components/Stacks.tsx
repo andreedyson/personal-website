@@ -16,6 +16,29 @@ function Stacks() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   const stackStaggerAnimationVariants = {
     hidden: {
       opacity: 0,
@@ -61,15 +84,16 @@ function Stacks() {
         </motion.div>
 
         {/* Stacks Grid */}
-        <motion.div className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4">
+        <motion.div
+          className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {TECH_STACKS.map((stack, index) => (
             <motion.div
               key={stack.name}
-              variants={stackStaggerAnimationVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              viewport={{ once: true }}
-              custom={index}
+              variants={itemVariants}
               className="w-full"
             >
               <TooltipProvider>
