@@ -6,7 +6,7 @@ import Image from "next/image";
 import { headerPopupAnimationVariants } from "@/index";
 
 export default function About() {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null!);
   const isInView = useInView(ref, { once: true });
 
   const descriptionAnimationVariants = {
