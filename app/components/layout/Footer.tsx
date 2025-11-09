@@ -9,7 +9,7 @@ function Footer() {
         className=" text-sm text-gray-font duration-200 hover:text-white hover:underline hover:underline-offset-8 md:text-base"
       >
         © {new Date().getFullYear()}. Created and Crafted by{" "}
-        <span className="font-semibold">Andre Edyson</span>
+        <span className="font-semibold text-primary">Andre Edyson</span>
       </Link>
     </footer>
   );
