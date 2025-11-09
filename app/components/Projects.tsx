@@ -10,39 +10,36 @@ export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Shared spring transition
+  // ✅ Softer, more cinematic motion parameters
   const springTransition = {
     type: "spring",
-    stiffness: 120,
-    damping: 14,
+    stiffness: 80,
+    damping: 20,
     mass: 0.8,
   };
 
-  // Clean fade-up animation with spring
+  // ✅ Smooth fade-up with slight stagger
   const fadeUpVariant = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 60 },
     visible: (index: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        mass: 0.5,
-        delay: index * 0.15,
+        ...springTransition,
+        delay: index * 0.12,
       },
     }),
   };
 
-  // Scale animation for "more to come"
+  // ✅ Gentle scale-in for "more to come"
   const scaleUpVariant = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.92 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
         ...springTransition,
-        delay: 0.2,
+        delay: 0.25,
       },
     },
   };
@@ -81,7 +78,7 @@ export default function Projects() {
               variants={fadeUpVariant}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
               custom={index}
             >
               <ProjectCard
@@ -102,7 +99,7 @@ export default function Projects() {
           variants={scaleUpVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.4 }}
           className="mt-16 space-y-2 lg:mt-24"
         >
           <h3 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
