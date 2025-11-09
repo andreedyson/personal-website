@@ -3,7 +3,7 @@ name: 🚀 Deploy to DigitalOcean
 on:
   push:
     branches:
-      - master
+      - master 
 
 jobs:
   deploy:
@@ -16,9 +16,10 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
+          passphrase: ${{ secrets.VPS_KEY_PASSPHRASE }}
           script: |
             cd /root/personal-website
             git pull origin master
             npm ci --legacy-peer-deps
-            npm run build
+            npm run build || exit 1
             pm2 restart personal-website || pm2 start npm --name "personal-website" -- run start
