@@ -10,7 +10,6 @@ export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // ✅ Softer, more cinematic motion parameters
   const springTransition = {
     type: "spring",
     stiffness: 80,
@@ -18,7 +17,6 @@ export default function Projects() {
     mass: 0.8,
   };
 
-  // ✅ Smooth fade-up with slight stagger
   const fadeUpVariant = {
     hidden: { opacity: 0, y: 60 },
     visible: (index: number) => ({
@@ -31,7 +29,6 @@ export default function Projects() {
     }),
   };
 
-  // ✅ Gentle scale-in for "more to come"
   const scaleUpVariant = {
     hidden: { opacity: 0, scale: 0.92 },
     visible: {
