@@ -21,4 +21,4 @@ jobs:
             git pull origin master
             npm ci --legacy-peer-deps
             npm run build
-            pm2 restart personal-website
+            pm2 restart personal-website || pm2 start npm --name "personal-website" -- run start
