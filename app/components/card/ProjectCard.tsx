@@ -10,8 +10,8 @@ type Props = {
   imgUrl: string;
   stacks: any[];
   position: "left" | "right";
-  repoUrl: string;
-  demoUrl: string;
+  repoUrl?: string;
+  demoUrl?: string;
 };
 
 function ProjectCard({
@@ -43,26 +43,32 @@ function ProjectCard({
         <div className="flex h-52 flex-col justify-center border-dark-blue bg-dark-navbar px-6 py-4 text-white max-lg:rounded-b-lg lg:max-w-lg lg:rounded-lg lg:border-2 lg:shadow-[5px_5px_0px_0px_rgba(69,73,172)] 2xl:max-w-xl">
           {/* Project Title */}
           <div className="flex items-center justify-between">
-            <Link href={demoUrl} target="_blank">
-              <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                {title}
-              </h3>
-            </Link>
-            <div className="flex items-center gap-2 md:gap-4">
-              <Link
-                href={repoUrl}
-                target="_blank"
-                className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
-              >
-                <FaGithub />
+            {demoUrl && (
+              <Link href={demoUrl} target="_blank">
+                <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
+                  {title}
+                </h3>
               </Link>
-              <a
-                href={demoUrl}
-                target="_blank"
-                className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
-              >
-                <FaArrowUpRightFromSquare />
-              </a>
+            )}
+            <div className="flex items-center gap-2 md:gap-4">
+              {repoUrl && (
+                <Link
+                  href={repoUrl}
+                  target="_blank"
+                  className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
+                >
+                  <FaGithub />
+                </Link>
+              )}
+              {demoUrl && (
+                <Link
+                  href={demoUrl}
+                  target="_blank"
+                  className="text-xl text-gray-500 duration-300 hover:-translate-y-1 hover:text-white md:text-2xl"
+                >
+                  <FaArrowUpRightFromSquare />
+                </Link>
+              )}
             </div>
           </div>
 

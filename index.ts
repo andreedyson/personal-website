@@ -1,3 +1,5 @@
+import { ProjectType } from "./types/config";
+
 export const TECH_STACKS = [
   {
     name: "Javascript",
@@ -66,6 +68,35 @@ export const TECH_STACKS = [
 ];
 
 export const PROJECTS_DATA = [
+  {
+    title: "PEDI Learn",
+    description:
+      "PEDI Learn is a Learning Management System designed to help students explore and develop skills aligned with their chosen industries.",
+    imgUrl: "/assets/projects/pedi.svg",
+    stacks: [
+      {
+        name: "Next.js",
+        imgPath: "/assets/stacks/nextjs.svg",
+      },
+      {
+        name: "React",
+        imgPath: "/assets/stacks/react.svg",
+      },
+      {
+        name: "Tailwind",
+        imgPath: "/assets/stacks/tailwindcss.svg",
+      },
+      {
+        name: "shadcn",
+        imgPath: "/assets/stacks/shadcn.svg",
+      },
+      {
+        name: "Prisma",
+        imgPath: "/assets/stacks/prisma.svg",
+      },
+    ],
+    demoUrl: "https://pedilearn.com",
+  },
   {
     title: "Emploria",
     description:
@@ -224,7 +255,7 @@ export const PROJECTS_DATA = [
     repoUrl: "https://github.com/andreedyson/agenone",
     demoUrl: "https://agenone-omega.vercel.app/",
   },
-];
+] satisfies ProjectType[];
 
 export const headerPopupAnimationVariants = {
   hidden: {
