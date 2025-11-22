@@ -18,7 +18,7 @@ jobs:
           key: ${{ secrets.VPS_KEY }}
           passphrase: ${{ secrets.VPS_KEY_PASSPHRASE }}
           script: |
-            cd /root/personal-website
+            cd /srv/apps/frontend/current
             git pull origin master
             npm ci --legacy-peer-deps
             npm run build || exit 1
