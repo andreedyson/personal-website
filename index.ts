@@ -72,7 +72,7 @@ export const PROJECTS_DATA = [
     title: "PEDI Learn",
     description:
       "PEDI Learn is a Learning Management System designed to help students explore and develop skills aligned with their chosen industries.",
-    imgUrl: "/assets/projects/pedi.svg",
+    imgUrl: "/assets/projects/pedi-showcase.svg",
     stacks: [
       {
         name: "Next.js",
