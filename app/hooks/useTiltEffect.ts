@@ -9,8 +9,8 @@ interface TiltOptions {
 }
 
 export function useTiltEffect(
-  ref: RefObject<HTMLElement>,
-  options: TiltOptions = {}
+  ref: RefObject<HTMLElement | null>,
+  options: TiltOptions = {},
 ) {
   const { maxTilt = 10, perspective = 1000, scale = 1.02 } = options;
 
