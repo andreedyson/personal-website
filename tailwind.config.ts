@@ -31,11 +31,18 @@ const config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
+        // Existing core colors (kept for compatibility)
         "main-blue": "#4190D9",
         "dark-blue": "#4549AC",
         "dark-bg": "#141D40",
         "dark-navbar": "#121830",
         "gray-font": "#9598A0",
+        // Enhanced accent colors
+        "accent-purple": "#6366F1",
+        "accent-cyan": "#06B6D4",
+        // Depth layer colors
+        "surface": "#1E293B",
+        "deep-bg": "#0F172A",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

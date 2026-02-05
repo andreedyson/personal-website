@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { headerPopupAnimationVariants, TECH_STACKS } from "@/index";
+import { TECH_STACKS } from "@/index";
 import Image from "next/image";
 
 import {
@@ -11,47 +11,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/app/components/ui/tooltip";
+import { aboutVariants, stacksVariants, hoverVariants } from "@/lib/animation-variants";
 
 function Stacks() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  };
-
-  const stackStaggerAnimationVariants = {
-    hidden: {
-      opacity: 0,
-      x: -100,
-    },
-    visible: (index: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: 1 + index * 0.2,
-      },
-    }),
-  };
 
   return (
     <section
@@ -64,19 +28,20 @@ function Stacks() {
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-dark-bg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
         </div>
       </div>
+
       <div className="flex w-full flex-col items-center gap-6 md:gap-10">
         {/* Stacks Header */}
         <motion.div
           ref={ref}
-          variants={headerPopupAnimationVariants}
+          variants={aboutVariants.header}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="w-full space-y-4 text-center md:max-w-md"
         >
-          <h2 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+          <h2 className="bg-gradient-to-r from-white to-main-blue bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             Tech Stacks
           </h2>
-          <p className="w-full text-sm text-gray-font md:text-base">
+          <p className="w-full text-sm leading-relaxed text-gray-font md:text-base">
             A collection of tools and technologies I use to build fast, modern,
             and responsive web applications — from frontend frameworks to
             styling systems and backend integrations.
@@ -86,29 +51,38 @@ function Stacks() {
         {/* Stacks Grid */}
         <motion.div
           className="grid w-full grid-cols-2 place-items-center gap-6 sm:grid-cols-3 md:gap-8 lg:grid-cols-4"
-          variants={containerVariants}
+          variants={stacksVariants.container}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {TECH_STACKS.map((stack, index) => (
             <motion.div
               key={stack.name}
-              variants={itemVariants}
+              variants={stacksVariants.card(index)}
               className="w-full"
             >
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger className="flex w-full flex-col items-center justify-center rounded-md bg-gray-900/40 py-6 outline outline-[5px] outline-gray-800 duration-300 hover:-translate-y-2">
-                    <Image
-                      src={stack.imgUrl}
-                      width={64}
-                      height={64}
-                      alt={stack.name}
-                      className="size-10 md:size-16"
-                    />
+                  <TooltipTrigger asChild>
+                    <motion.div
+                      className="relative flex w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-dark-navbar to-surface py-6 outline outline-2 outline-main-blue/20"
+                      whileHover={hoverVariants.stackHover}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {/* Gradient glow on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-main-blue/10 via-accent-purple/10 to-accent-cyan/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                      <Image
+                        src={stack.imgUrl}
+                        width={64}
+                        height={64}
+                        alt={stack.name}
+                        className="relative z-10 size-10 md:size-16"
+                      />
+                    </motion.div>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{stack.name}</p>
+                  <TooltipContent className="bg-gradient-to-br from-main-blue to-dark-blue text-white">
+                    <p className="font-semibold">{stack.name}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

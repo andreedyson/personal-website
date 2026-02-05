@@ -257,6 +257,9 @@ export const PROJECTS_DATA = [
   },
 ] satisfies ProjectType[];
 
+// Animation variants have been moved to lib/animation-variants.ts
+// Import from there for diverse, section-specific animations
+// This old variant is kept for backward compatibility but will be phased out
 export const headerPopupAnimationVariants = {
   hidden: {
     opacity: 0,
@@ -274,3 +277,6 @@ export const headerPopupAnimationVariants = {
     },
   },
 };
+
+// Re-export new animation variants for easy access
+export * from "./lib/animation-variants";
