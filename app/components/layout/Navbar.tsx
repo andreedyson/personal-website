@@ -89,7 +89,7 @@ export default function Navbar() {
               <>
                 {/* Overlay */}
                 <motion.div
-                  className="fixed inset-0 right-[30%] top-[64px] bg-black/50 backdrop-blur-sm"
+                  className="fixed inset-0 top-[64px] bg-black/50 backdrop-blur-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

@@ -42,7 +42,7 @@ function ProjectCard({
         >
           <motion.div
             variants={{
-              hover: { scale: 1.1 },
+              hover: { scale: 1.05 },
             }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >

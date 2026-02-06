@@ -9,9 +9,9 @@ export default function Hero() {
   const { scrollY } = useScroll();
 
   // Parallax effect for floating elements
-  const y1 = useTransform(scrollY, [0, 300], [0, 50]);
-  const y2 = useTransform(scrollY, [0, 300], [0, -30]);
-  const y3 = useTransform(scrollY, [0, 300], [0, 40]);
+  const y1 = useTransform(scrollY, [0, 300], [0, 25]);
+  const y2 = useTransform(scrollY, [0, 300], [0, -15]);
+  const y3 = useTransform(scrollY, [0, 300], [0, 20]);
 
   return (
     <section
