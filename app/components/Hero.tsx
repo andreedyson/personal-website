@@ -75,7 +75,7 @@ export default function Hero() {
         {/* Name with enhanced glow */}
         <motion.h1
           variants={itemVariants}
-          className="relative mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
+          className="relative mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
         >
           <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-blue-500/20 via-indigo-400/20 to-purple-500/20 blur-3xl" />
           <span className="relative bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent">
