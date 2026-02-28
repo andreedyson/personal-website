@@ -29,10 +29,6 @@ const config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        // ── Core Brand ──────────────────────────────
-        "main-blue": "#3B82F6",
-        "dark-blue": "#1E40AF",
-
         // ── Background Layers (darkest → lightest) ──
         "dark-bg": "#030305",
         "deep-bg": "#08080A",
@@ -142,8 +138,6 @@ const config = {
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme("colors"));
 
-  // Filter out any value that references a CSS variable
-  // to prevent circular references like --border: hsl(var(--border))
   const newVars = Object.fromEntries(
     Object.entries(allColors)
       .filter(([, val]) => {

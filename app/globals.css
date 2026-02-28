@@ -4,43 +4,10 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    /* #030305 — true dark base */
+    /* ── Dark-first palette ── */
     --background: 240 25% 1.6%;
     --foreground: 0 0% 96%;
 
-    /* #0A0A0F — elevated surfaces */
     --card: 240 20% 5%;
     --card-foreground: 0 0% 96%;
 
@@ -50,7 +17,6 @@
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    /* #111118 — secondary surfaces */
     --secondary: 240 17% 8%;
     --secondary-foreground: 0 0% 96%;
 
@@ -63,16 +29,17 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Ultra-subtle borders — white at ~6% opacity feel */
     --border: 240 10% 10%;
     --input: 240 10% 10%;
     --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
   }
 }
 
 @layer base {
   body {
-    font-family: "Plus Jakarta Sans", monospace;
+    font-family: "Plus Jakarta Sans", sans-serif;
     @apply bg-background text-foreground antialiased;
     scroll-behavior: smooth;
   }
@@ -81,12 +48,10 @@
     @apply relative px-6 py-24 md:px-12 md:py-32 lg:px-24;
   }
 
-  /* Selection */
   ::selection {
-    @apply bg-blue-500/20 text-white;
+    @apply bg-primary/20 text-white;
   }
 
-  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -106,22 +71,13 @@
   }
 }
 
-/* Utility layer for reusable patterns */
 @layer utilities {
   .glow-blue {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.15);
   }
 
   .glow-blue-lg {
-    box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);
-  }
-
-  .border-subtle {
-    border-color: rgba(255, 255, 255, 0.06);
-  }
-
-  .bg-surface-subtle {
-    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 60px hsl(var(--primary) / 0.2);
   }
 
   .text-gradient-blue {
@@ -130,8 +86,8 @@
 
   .bg-grid-pattern {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 }

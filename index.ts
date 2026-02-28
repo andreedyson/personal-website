@@ -313,8 +313,8 @@ export const EXPERIENCES = [
     companyUrl: "https://fiverr.com",
     location: "Remote",
     type: "Freelance",
-    startDate: "Jul 2024",
-    endDate: "Aug 2024",
+    startDate: "Jul 2023",
+    endDate: "Aug 2023",
     description:
       "Provided UI slicing services on Fiverr, converting design mockups into pixel-perfect, responsive web pages for clients.",
     highlights: [
