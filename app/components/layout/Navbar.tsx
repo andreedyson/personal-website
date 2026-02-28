@@ -11,20 +11,40 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
 
+  const navLinks = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
+    { href: "#stacks", label: "Stacks" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  // Mobile menu excludes Home (logo already links there)
+  const mobileNavLinks = navLinks.filter((link) => link.href !== "#home");
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Track active section
-      const sections = ["home", "about", "projects", "contact"];
-      for (const id of sections.reverse()) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 200) {
-          setActiveSection(`#${id}`);
+      const sections = [
+        "home",
+        "about",
+        "experience",
+        "stacks",
+        "projects",
+        "contact",
+      ];
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && window.scrollY >= el.offsetTop - 300) {
+          setActiveSection(`#${sections[i]}`);
           break;
         }
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,13 +55,6 @@ export default function Navbar() {
       document.body.style.overflow = "unset";
     };
   }, [openNav]);
-
-  const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ];
 
   return (
     <>
@@ -125,7 +138,6 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Center section indicator */}
           <span className="text-[11px] font-medium uppercase tracking-widest text-neutral-600">
             {navLinks.find((l) => l.href === activeSection)?.label ?? "Home"}
           </span>
@@ -172,10 +184,8 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden"
           >
-            {/* Backdrop */}
-            <div className="bg-[#030305]/98 absolute inset-0 backdrop-blur-2xl" />
+            <div className="absolute inset-0 bg-[#030305]/[0.98] backdrop-blur-2xl" />
 
-            {/* Grid pattern */}
             <div
               className="absolute inset-0 opacity-[0.02]"
               style={{
@@ -185,14 +195,11 @@ export default function Navbar() {
               }}
             />
 
-            {/* Ambient glow */}
             <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.06] blur-[100px]" />
 
-            {/* Nav content */}
-            <div className="relative flex h-full flex-col items-center justify-center">
-              {/* Section number + links */}
+            <div className="relative flex h-full flex-col items-center justify-center px-6 pb-24 pt-20">
               <div className="flex flex-col items-center gap-2">
-                {navLinks.map((link, i) => (
+                {mobileNavLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
                     initial={{ opacity: 0, y: 30 }}
@@ -237,7 +244,6 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -254,12 +260,11 @@ export default function Navbar() {
                 </Link>
               </motion.div>
 
-              {/* Bottom info */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
-                className="absolute bottom-10 flex flex-col items-center gap-2"
+                className="absolute bottom-16 left-0 right-0 flex flex-col items-center gap-2 pb-[env(safe-area-inset-bottom)]"
               >
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-1.5 w-1.5">
