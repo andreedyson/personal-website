@@ -3,120 +3,240 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { aboutVariants, staggerContainer } from "@/lib/animation-variants";
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null!);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const paragraphs = [
-    "Hi, thanks for taking your time visiting my portfolio website! My name is Andre Edyson, I'm 20 years old and I love making websites.",
-    "My web development journey started when I was a kid. As a 10 years old, I got my very first laptop and it spark my interest not only in watching YouTube videos, but also exploring the internet. What started with copying HTML and CSS templates for fun slowly turned into a passion for building interactive and useful interfaces.",
-    "That curiosity grew into a skillset and now, I build modern web applications using tools like Next.js, Javascript, Typescript and TailwindCSS. I love solving problems through clean UI and thoughtful code. Whether it's a dashboard, landing page, or internal tool. My goal is always the same: make it fast, functional, and visually engaging.",
-  ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
+  };
 
   return (
     <section
       id="about"
-      className="section relative flex h-full flex-col justify-center max-sm:mt-10"
+      ref={ref}
+      className="relative w-full overflow-hidden bg-[#030305] px-6 py-24 md:px-12 md:py-32 lg:px-24"
     >
-      {/* Dot Background */}
-      <div>
-        <div className="absolute left-0 top-0 -z-10 flex h-full w-full items-center justify-center bg-dark-bg bg-dot-white/[0.3] dark:bg-black dark:bg-dot-white/[0.2]">
-          {/* Radial gradient for the container to give a faded look */}
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-dark-bg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        </div>
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-600/[0.04] blur-[140px]" />
+        <div className="absolute bottom-0 right-1/4 h-[300px] w-[400px] rounded-full bg-indigo-500/[0.03] blur-[120px]" />
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
       </div>
 
-      <div className="flex flex-col items-center justify-between max-xl:gap-8 lg:flex-row xl:gap-12">
-        {/* About Header */}
-        <div ref={ref}>
-          <motion.div
-            variants={aboutVariants.header}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            <h2 className="z-50 bg-gradient-to-r from-white to-main-blue bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
-              About Me
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative mt-2"
-          >
-            <div className="absolute left-0 top-0 h-[5px] w-1/4 bg-gradient-to-r from-main-blue via-accent-cyan to-transparent" />
-            <div className="absolute left-0 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-accent-purple to-transparent" />
-            <div className="absolute left-0 top-0 h-px w-2/4 bg-gradient-to-r from-main-blue via-accent-cyan to-transparent" />
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="mt-6 max-w-[550px] space-y-4 text-sm text-slate-300 md:space-y-6 md:text-base"
-          >
-            {paragraphs.map((text, i) => (
-              <motion.p
-                key={i}
-                variants={aboutVariants.text}
-                custom={i}
-                className="leading-relaxed"
-              >
-                {text.includes("very first laptop") ? (
-                  <>
-                    {text.split("very first laptop")[0]}
-                    <span className="font-semibold text-white underline decoration-main-blue">
-                      very first laptop
-                    </span>
-                    {text.split("very first laptop")[1].split("exploring the internet")[0]}
-                    <span className="font-semibold text-white underline decoration-accent-cyan">
-                      exploring the internet
-                    </span>
-                    {text.split("exploring the internet")[1].split("HTML")[0]}
-                    <span className="font-semibold text-orange-500">HTML</span>
-                    {text.split("HTML")[1].split("CSS")[0]}
-                    <span className="font-semibold text-sky-400">CSS</span>
-                    {text.split("CSS")[1]}
-                  </>
-                ) : text.includes("Next.js") ? (
-                  <>
-                    {text.split("Next.js")[0]}
-                    <span className="font-semibold text-slate-200">Next.js</span>
-                    {text.split("Next.js")[1].split("Javascript")[0]}
-                    <span className="font-semibold text-yellow-400">Javascript</span>
-                    {text.split("Javascript")[1].split("Typescript")[0]}
-                    <span className="font-semibold text-sky-500">Typescript</span>
-                    {text.split("Typescript")[1].split("TailwindCSS")[0]}
-                    <span className="font-semibold text-sky-300">TailwindCSS</span>
-                    {text.split("TailwindCSS")[1].replace("it's", "it&apos;s")}
-                  </>
-                ) : (
-                  text.replace("I'm", "I&apos;m")
-                )}
-              </motion.p>
-            ))}
-          </motion.div>
-        </div>
-
+      <div className="relative z-10 mx-auto max-w-6xl">
+        {/* Section label */}
         <motion.div
-          variants={aboutVariants.image}
+          variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="relative"
+          className="mb-20 flex items-center gap-4"
         >
-          {/* Gradient glow effect behind image */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-main-blue via-accent-purple to-accent-cyan opacity-30 blur-2xl" />
+          <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-600">
+            01
+          </span>
+          <div className="h-px w-12 bg-neutral-800" />
+          <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-600">
+            About
+          </span>
+        </motion.div>
 
-          <Image
-            src={"/assets/profile_andre.png"}
-            width={1200}
-            height={1200}
-            alt="Personal Photo"
-            className="relative size-[300px] rounded-full object-cover object-right ring-4 ring-main-blue/50 [box-shadow:_20px_5px_2px_rgb(0_0_0_/_100%)] md:size-[400px] 2xl:-translate-x-12"
-          />
+        {/* Top: Image + Intro Row */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="mb-16 flex flex-col items-start gap-12 md:flex-row md:items-center md:gap-16"
+        >
+          {/* Image */}
+          <motion.div
+            variants={itemVariants}
+            className="relative flex-shrink-0"
+          >
+            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-blue-500/[0.08] to-indigo-500/[0.04] blur-xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-white/[0.06]">
+              <Image
+                src="/assets/profile_andre.png"
+                width={1200}
+                height={1200}
+                alt="Andre Edyson"
+                className="h-[200px] w-[200px] object-cover object-center md:h-[220px] md:w-[220px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/60 via-transparent to-transparent" />
+            </div>
+          </motion.div>
+
+          {/* Intro heading */}
+          <div className="flex-1">
+            <motion.h2
+              variants={itemVariants}
+              className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem] lg:leading-tight"
+            >
+              I&apos;m{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                Andre Edyson
+              </span>
+              , a frontend developer who loves crafting things for the web.
+            </motion.h2>
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3"
+            >
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              <span className="text-xs text-neutral-500">
+                Based in Indonesia · Available for work
+              </span>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Divider */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          className="mb-16 h-px w-full origin-left bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent"
+        />
+
+        {/* Body Content Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid gap-12 md:grid-cols-5 md:gap-16"
+        >
+          {/* Story — wider column */}
+          <div className="space-y-5 md:col-span-3">
+            <motion.p
+              variants={itemVariants}
+              className="text-[15px] leading-[1.8] text-neutral-400"
+            >
+              My web development journey started when I was a kid. As a 10 year
+              old, I got my{" "}
+              <span className="text-neutral-200 underline decoration-blue-500/40 underline-offset-4">
+                very first laptop
+              </span>{" "}
+              and it sparked my interest not only in watching YouTube videos,
+              but also{" "}
+              <span className="text-neutral-200 underline decoration-indigo-500/40 underline-offset-4">
+                exploring the internet
+              </span>
+              . What started with copying{" "}
+              <span className="font-medium text-orange-400/90">HTML</span> and{" "}
+              <span className="font-medium text-sky-400/90">CSS</span> templates
+              for fun slowly turned into a passion for building interactive and
+              useful interfaces.
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-[15px] leading-[1.8] text-neutral-400"
+            >
+              That curiosity grew into a skillset and now, I build modern web
+              applications using tools like{" "}
+              <span className="font-medium text-neutral-200">Next.js</span>,{" "}
+              <span className="font-medium text-yellow-400/80">Javascript</span>
+              , <span className="font-medium text-blue-400/80">Typescript</span>{" "}
+              and{" "}
+              <span className="font-medium text-sky-300/80">TailwindCSS</span>.
+              I love solving problems through clean UI and thoughtful code —
+              whether it&apos;s a dashboard, landing page, or internal tool. My
+              goal is always the same:{" "}
+              <span className="text-neutral-200">
+                make it fast, functional, and visually engaging.
+              </span>
+            </motion.p>
+          </div>
+
+          {/* Right column — stats + details */}
+          <div className="space-y-8 md:col-span-2">
+            {/* Stats */}
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { number: "3+", label: "Years of\nExperience" },
+                { number: "20+", label: "Projects\nBuilt" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-xl border border-white/[0.04] bg-white/[0.02] p-4"
+                >
+                  <p className="text-2xl font-bold text-white">{stat.number}</p>
+                  <p className="mt-1.5 whitespace-pre-line text-[10px] uppercase leading-tight tracking-wider text-neutral-600">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Core tools */}
+            <motion.div variants={itemVariants}>
+              <p className="mb-3 text-[10px] uppercase tracking-[0.15em] text-neutral-600">
+                Core Stack
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Next.js",
+                  "TypeScript",
+                  "TailwindCSS",
+                  "Hono",
+                  "Prisma",
+                  "React",
+                ].map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-full border border-white/[0.06] bg-white/[0.03] px-3 py-1 text-[11px] text-neutral-400"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Currently */}
+            <motion.div
+              variants={itemVariants}
+              className="rounded-xl border border-white/[0.04] bg-white/[0.02] p-4"
+            >
+              <div className="mb-2 flex items-center gap-2">
+                <div className="h-1 w-1 rounded-full bg-blue-400" />
+                <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-600">
+                  Currently
+                </p>
+              </div>
+              <p className="text-sm leading-relaxed text-neutral-400">
+                Exploring backend development with{" "}
+                <span className="text-neutral-300">Hono</span> and building
+                full-stack applications.
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

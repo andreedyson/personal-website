@@ -13,8 +13,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -30,54 +30,65 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* #030305 — true dark base */
+    --background: 240 25% 1.6%;
+    --foreground: 0 0% 96%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    /* #0A0A0F — elevated surfaces */
+    --card: 240 20% 5%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 20% 5%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    /* #111118 — secondary surfaces */
+    --secondary: 240 17% 8%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 240 12% 10%;
+    --muted-foreground: 240 5% 55%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 240 17% 8%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    /* Ultra-subtle borders — white at ~6% opacity feel */
+    --border: 240 10% 10%;
+    --input: 240 10% 10%;
+    --ring: 217 91% 60%;
   }
 }
 
 @layer base {
-  * {
-    font-family: "Outfit", sans-serif;
+  body {
+    font-family: "Plus Jakarta Sans", monospace;
+    @apply bg-background text-foreground antialiased;
     scroll-behavior: smooth;
   }
 
   .section {
-    @apply px-6 py-24 text-white md:px-16 xl:px-40 xl:py-32;
+    @apply relative px-6 py-24 md:px-12 md:py-32 lg:px-24;
   }
 
+  /* Selection */
+  ::selection {
+    @apply bg-blue-500/20 text-white;
+  }
+
+  /* Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -85,11 +96,42 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #4190d9;
-    border-radius: 6px;
+    background-color: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background-color: hsl(var(--primary) / 0.6);
+  }
+}
+
+/* Utility layer for reusable patterns */
+@layer utilities {
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+  }
+
+  .glow-blue-lg {
+    box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);
+  }
+
+  .border-subtle {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .bg-surface-subtle {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 }

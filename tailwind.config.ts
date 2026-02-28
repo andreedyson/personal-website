@@ -1,8 +1,6 @@
 import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
-
-const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -31,18 +29,25 @@ const config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        // Existing core colors (kept for compatibility)
-        "main-blue": "#4190D9",
-        "dark-blue": "#4549AC",
-        "dark-bg": "#141D40",
-        "dark-navbar": "#121830",
-        "gray-font": "#9598A0",
-        // Enhanced accent colors
-        "accent-purple": "#6366F1",
-        "accent-cyan": "#06B6D4",
-        // Depth layer colors
-        "surface": "#1E293B",
-        "deep-bg": "#0F172A",
+        // ── Core Brand ──────────────────────────────
+        "main-blue": "#3B82F6",
+        "dark-blue": "#1E40AF",
+
+        // ── Background Layers (darkest → lightest) ──
+        "dark-bg": "#030305",
+        "deep-bg": "#08080A",
+        "dark-navbar": "#0A0A0F",
+        surface: "#111118",
+
+        // ── Text ────────────────────────────────────
+        "gray-font": "#A3A3A3",
+
+        // ── Accents ─────────────────────────────────
+        "accent-purple": "#8B5CF6",
+        "accent-cyan": "#22D3EE",
+        "accent-emerald": "#34D399",
+
+        // ── Shadcn UI tokens ────────────────────────
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -82,10 +87,10 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -95,6 +100,10 @@ const config = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
         },
       },
     },
@@ -131,9 +140,16 @@ const config = {
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+  const allColors = flattenColorPalette(theme("colors"));
+
+  // Filter out any value that references a CSS variable
+  // to prevent circular references like --border: hsl(var(--border))
+  const newVars = Object.fromEntries(
+    Object.entries(allColors)
+      .filter(([, val]) => {
+        return typeof val === "string" && !val.includes("var(");
+      })
+      .map(([key, val]) => [`--${key}`, val]),
   );
 
   addBase({
