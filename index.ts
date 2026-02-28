@@ -257,6 +257,60 @@ export const PROJECTS_DATA = [
   },
 ] satisfies ProjectType[];
 
+export const EXPERIENCES = [
+  {
+    role: "Frontend Developer",
+    company: "Freelance",
+    companyUrl: undefined,
+    location: "Remote",
+    type: "Self-employed",
+    startDate: "Jan 2024",
+    endDate: "Present",
+    description:
+      "Building modern web applications for clients using Next.js, TypeScript, and TailwindCSS. Handling end-to-end development from design implementation to deployment.",
+    highlights: [
+      "Delivered 5+ client projects ranging from landing pages to full-stack dashboards",
+      "Integrated REST APIs and third-party services like payment gateways and auth providers",
+      "Improved Core Web Vitals scores by 40% on average through performance optimization",
+    ],
+    stacks: ["Next.js", "TypeScript", "TailwindCSS", "Prisma"],
+  },
+  {
+    role: "Frontend Developer Intern",
+    company: "PT. Tech Nusantara",
+    companyUrl: "https://example.com",
+    location: "Jakarta, Indonesia",
+    type: "Internship",
+    startDate: "Jun 2023",
+    endDate: "Dec 2023",
+    description:
+      "Collaborated with a cross-functional team to develop and maintain internal tools and customer-facing web applications.",
+    highlights: [
+      "Built reusable component library used across 3 internal projects",
+      "Reduced page load times by 35% through code splitting and lazy loading",
+      "Participated in code reviews and agile sprint planning",
+    ],
+    stacks: ["React", "JavaScript", "TailwindCSS", "Hono"],
+  },
+  {
+    role: "Web Developer",
+    company: "University Project Team",
+    companyUrl: undefined,
+    location: "Indonesia",
+    type: "Academic",
+    startDate: "Aug 2022",
+    endDate: "May 2023",
+    description:
+      "Led frontend development for multiple university capstone and course projects, mentoring team members on modern web practices.",
+    highlights: [
+      "Led a team of 4 developers to build a full-stack inventory management system",
+      "Implemented authentication and role-based access control with NextAuth",
+      "Presented final project to a panel of industry professionals",
+    ],
+    stacks: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+  },
+];
+
 // Animation variants have been moved to lib/animation-variants.ts
 // Import from there for diverse, section-specific animations
 // This old variant is kept for backward compatibility but will be phased out

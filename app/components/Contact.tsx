@@ -54,7 +54,7 @@ export default function Contact() {
           className="mb-20 flex items-center gap-4"
         >
           <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-600">
-            04
+            05
           </span>
           <div className="h-px w-12 bg-neutral-800" />
           <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-600">
