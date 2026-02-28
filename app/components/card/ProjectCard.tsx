@@ -4,8 +4,6 @@ import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import TiltCard from "../animations/TiltCard";
-import { hoverVariants } from "@/lib/animation-variants";
 
 type Props = {
   title: string;
@@ -18,7 +16,7 @@ type Props = {
   index: number;
 };
 
-function ProjectCard({
+export default function ProjectCard({
   title,
   description,
   imgUrl,
@@ -29,126 +27,135 @@ function ProjectCard({
   index,
 }: Props) {
   return (
-    <article className="max-lg:rounded-lg">
-      <TiltCard
-        className="grid grid-cols-1 lg:grid-cols-2 lg:place-items-center lg:gap-4"
-        maxTilt={3}
-        disableOnMobile={true}
+    <article className="group/card grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-10">
+      {/* Image */}
+      <motion.div
+        className={`relative aspect-video w-full overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] ${
+          position !== "left" ? "lg:order-2" : ""
+        }`}
+        whileHover="hover"
       >
-        {/* Projects Image */}
-        <motion.div
-          className={`group relative aspect-video w-full overflow-hidden rounded-t-lg md:rounded-lg ${position !== "left" && "lg:order-2"}`}
-          whileHover="hover"
-        >
-          <motion.div
-            variants={{
-              hover: { scale: 1.05 },
-            }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            <Image
-              src={imgUrl}
-              width={600}
-              height={400}
-              alt={title}
-              className="h-full w-full bg-dark-navbar object-cover lg:h-80"
-            />
-          </motion.div>
+        {/* Glow behind image */}
+        <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-blue-500/[0.06] to-indigo-500/[0.04] opacity-0 blur-xl transition-opacity duration-500 group-hover/card:opacity-100" />
 
-          {/* Gradient overlay on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-blue/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <motion.div
+          className="relative h-full w-full"
+          variants={{ hover: { scale: 1.03 } }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <Image
+            src={imgUrl}
+            width={800}
+            height={500}
+            alt={title}
+            className="h-full w-full object-cover"
+          />
         </motion.div>
 
-        {/* Projects Details */}
-        <motion.div
-          className="relative flex h-52 flex-col justify-center overflow-hidden rounded-b-lg bg-gradient-to-br from-dark-navbar via-dark-navbar to-surface px-6 py-4 text-white max-lg:shadow-2xl max-lg:shadow-main-blue/30 lg:max-w-lg lg:rounded-lg 2xl:max-w-xl"
-          whileHover={{ y: -5 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        >
-          {/* Gradient border effect */}
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-main-blue via-accent-purple to-accent-cyan p-[2px] opacity-60">
-            <div className="h-full w-full rounded-lg bg-dark-navbar" />
-          </div>
+        {/* Bottom gradient */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#030305]/80 to-transparent" />
 
-          {/* Content */}
-          <div className="relative z-10">
-            {/* Project Title */}
-            <div className="flex items-center justify-between">
-              {demoUrl ? (
-                <Link href={demoUrl} target="_blank">
-                  <h3 className="bg-gradient-to-r from-white to-main-blue bg-clip-text text-2xl font-bold text-transparent transition-all hover:from-main-blue hover:to-accent-cyan md:text-3xl lg:text-4xl">
-                    {title}
-                  </h3>
-                </Link>
-              ) : (
-                <h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                  {title}
-                </h3>
-              )}
-              <div className="flex items-center gap-2 md:gap-4">
-                {repoUrl && (
-                  <motion.div whileHover={hoverVariants.scaleGlow}>
-                    <Link
-                      href={repoUrl}
-                      target="_blank"
-                      className="text-xl text-gray-font transition-colors hover:text-white md:text-2xl"
-                    >
-                      <FaGithub />
-                    </Link>
-                  </motion.div>
-                )}
-                {demoUrl && (
-                  <motion.div whileHover={hoverVariants.scaleGlow}>
-                    <Link
-                      href={demoUrl}
-                      target="_blank"
-                      className="text-xl text-gray-font transition-colors hover:text-white md:text-2xl"
-                    >
-                      <FaArrowUpRightFromSquare />
-                    </Link>
-                  </motion.div>
-                )}
+        {/* Top accent line */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      </motion.div>
+
+      {/* Details */}
+      <div
+        className={`flex flex-col ${
+          position !== "left" ? "lg:items-end lg:text-right" : ""
+        }`}
+      >
+        {/* Index number */}
+        <span className="mb-3 text-[11px] tabular-nums tracking-[0.2em] text-neutral-700">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        {/* Title + Links */}
+        <div
+          className={`mb-4 flex items-center gap-4 ${
+            position !== "left"
+              ? "flex-row-reverse justify-end lg:justify-start"
+              : ""
+          }`}
+        >
+          {demoUrl ? (
+            <Link href={demoUrl} target="_blank" className="group/title">
+              <h3 className="text-2xl font-bold tracking-tight text-white transition-colors group-hover/title:text-blue-400 md:text-3xl lg:text-4xl">
+                {title}
+              </h3>
+            </Link>
+          ) : (
+            <h3 className="text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl">
+              {title}
+            </h3>
+          )}
+
+          <div className="flex items-center gap-3">
+            {repoUrl && (
+              <Link
+                href={repoUrl}
+                target="_blank"
+                className="text-neutral-600 transition-colors hover:text-white"
+              >
+                <FaGithub className="h-4.5 w-4.5" />
+              </Link>
+            )}
+            {demoUrl && (
+              <Link
+                href={demoUrl}
+                target="_blank"
+                className="text-neutral-600 transition-colors hover:text-white"
+              >
+                <FaArrowUpRightFromSquare className="h-4 w-4" />
+              </Link>
+            )}
+          </div>
+        </div>
+
+        {/* Description */}
+        <p
+          className={`mb-6 max-w-lg text-[15px] leading-[1.8] text-neutral-500 ${
+            position !== "left" ? "lg:ml-auto" : ""
+          }`}
+        >
+          {description}
+        </p>
+
+        {/* Tech Stack */}
+        <div
+          className={`flex flex-wrap items-center gap-2 ${
+            position !== "left" ? "lg:justify-end" : ""
+          }`}
+        >
+          {stacks.map((stack, i) => (
+            <motion.div
+              key={stack.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: 0.3 + i * 0.05,
+                duration: 0.3,
+                ease: "easeOut",
+              }}
+              className="group/stack relative"
+            >
+              <div className="flex items-center gap-1.5 rounded-full border border-white/[0.06] bg-white/[0.03] px-2.5 py-1.5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.05]">
+                <Image
+                  src={stack.imgPath}
+                  width={20}
+                  height={20}
+                  alt={stack.name}
+                  className="size-3.5 md:size-4"
+                />
+                <span className="text-[10px] font-medium text-neutral-500 transition-colors group-hover/stack:text-neutral-300 md:text-[11px]">
+                  {stack.name}
+                </span>
               </div>
-            </div>
-
-            {/* Project Description */}
-            <p className="mt-2 line-clamp-3 text-justify text-sm leading-relaxed text-gray-font md:mt-3 md:text-base">
-              {description}
-            </p>
-
-            {/* Project Tech Stack */}
-            <div className="mt-4 flex flex-wrap items-center gap-2 md:mt-7 md:gap-3">
-              {stacks.map((stack, i) => (
-                <motion.div
-                  key={stack.name}
-                  className="group/badge relative"
-                  whileHover={{
-                    scale: 1.1,
-                    y: -2,
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  style={{ transitionDelay: `${i * 0.05}s` }}
-                >
-                  <div className="rounded-full bg-surface/50 p-1.5 backdrop-blur-sm ring-1 ring-main-blue/20 transition-all group-hover/badge:bg-surface group-hover/badge:ring-main-blue/50 group-hover/badge:shadow-[0_0_15px_rgba(65,144,217,0.4)]">
-                    <Image
-                      src={stack.imgPath}
-                      width={24}
-                      height={24}
-                      alt={stack.name}
-                      title={stack.name}
-                      className="size-5 md:size-6"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </TiltCard>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </article>
   );
 }
-
-export default ProjectCard;
