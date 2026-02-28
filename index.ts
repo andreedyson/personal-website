@@ -259,7 +259,32 @@ export const PROJECTS_DATA = [
 
 export const EXPERIENCES = [
   {
-    role: "Frontend Developer",
+    role: "Frontend Web Developer",
+    company: "Universitas Bandar Lampung",
+    companyUrl: undefined,
+    location: "Kota Bandar Lampung, Lampung, Indonesia",
+    type: "Internship",
+    startDate: "Aug 2025",
+    endDate: "Present",
+    description:
+      "Developing scalable academic and learning platforms serving university staff and 1,000+ students using modern frontend architecture.",
+    highlights: [
+      "Built an Academic Bureau dashboard for university staff, delivering real-time data visualization of user metrics and institutional overview using Quasar Framework",
+      "Developed a multilingual student registration platform (English, Bahasa Indonesia, Mandarin) using Next.js, TypeScript, TailwindCSS, and next-intl",
+      "Engineered PEDI Learn, an LMS platform used by ~1,000 students, streamlining industrial interest-based learning and reducing instructor workload",
+      "Collaborated with backend engineers to integrate REST APIs across multiple academic systems",
+    ],
+    stacks: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Quasar Framework",
+      "next-intl",
+    ],
+  },
+
+  {
+    role: "Frontend Web Developer",
     company: "Freelance",
     companyUrl: undefined,
     location: "Remote",
@@ -267,47 +292,37 @@ export const EXPERIENCES = [
     startDate: "Jan 2024",
     endDate: "Present",
     description:
-      "Building modern web applications for clients using Next.js, TypeScript, and TailwindCSS. Handling end-to-end development from design implementation to deployment.",
+      "Building personal full-stack web projects focusing on real-world use cases using Next.js, TypeScript, and modern tooling.",
     highlights: [
-      "Delivered 5+ client projects ranging from landing pages to full-stack dashboards",
-      "Integrated REST APIs and third-party services like payment gateways and auth providers",
-      "Improved Core Web Vitals scores by 40% on average through performance optimization",
+      "Built a finance tracking app to monitor expenses and savings goals using Next.js, TypeScript, and MongoDB",
+      "Created a stock management system with RESTful APIs, Prisma ORM, and PostgreSQL for dynamic inventory tracking",
+      "Developed an e-commerce tech products platform with product listings, shopping cart, and checkout using Zustand for state management",
     ],
-    stacks: ["Next.js", "TypeScript", "TailwindCSS", "Prisma"],
+    stacks: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Prisma",
+      "PostgreSQL",
+      "Zustand",
+    ],
   },
   {
-    role: "Frontend Developer Intern",
-    company: "PT. Tech Nusantara",
-    companyUrl: "https://example.com",
-    location: "Jakarta, Indonesia",
-    type: "Internship",
-    startDate: "Jun 2023",
-    endDate: "Dec 2023",
+    role: "UI Slicing",
+    company: "Fiverr",
+    companyUrl: "https://fiverr.com",
+    location: "Remote",
+    type: "Freelance",
+    startDate: "Jul 2024",
+    endDate: "Aug 2024",
     description:
-      "Collaborated with a cross-functional team to develop and maintain internal tools and customer-facing web applications.",
+      "Provided UI slicing services on Fiverr, converting design mockups into pixel-perfect, responsive web pages for clients.",
     highlights: [
-      "Built reusable component library used across 3 internal projects",
-      "Reduced page load times by 35% through code splitting and lazy loading",
-      "Participated in code reviews and agile sprint planning",
+      "Translated Figma/PSD designs into clean, responsive HTML/CSS and React components",
+      "Delivered pixel-perfect implementations with cross-browser compatibility",
+      "Maintained clear client communication to ensure designs matched expectations",
     ],
-    stacks: ["React", "JavaScript", "TailwindCSS", "Hono"],
-  },
-  {
-    role: "Web Developer",
-    company: "University Project Team",
-    companyUrl: undefined,
-    location: "Indonesia",
-    type: "Academic",
-    startDate: "Aug 2022",
-    endDate: "May 2023",
-    description:
-      "Led frontend development for multiple university capstone and course projects, mentoring team members on modern web practices.",
-    highlights: [
-      "Led a team of 4 developers to build a full-stack inventory management system",
-      "Implemented authentication and role-based access control with NextAuth",
-      "Presented final project to a panel of industry professionals",
-    ],
-    stacks: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    stacks: ["React", "HTML", "CSS", "TailwindCSS"],
   },
 ];
 

@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="relative mx-auto max-w-[1920px] bg-dark-bg md:py-32">
+      <body className="relative mx-auto max-w-[1920px] bg-dark-bg py-32">
         <Navbar />
         <div>{children}</div>
         <Footer />
