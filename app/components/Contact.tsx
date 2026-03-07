@@ -31,10 +31,12 @@ export default function Contact() {
       ref={ref}
       className="relative w-full overflow-hidden bg-[#030305] px-6 py-24 md:px-12 md:py-32 lg:px-24"
     >
-      {/* Background */}
+      {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute left-1/2 top-1/2 h-[500px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.05] blur-[160px]" />
-        <div className="absolute bottom-0 left-1/3 h-[300px] w-[400px] rounded-full bg-indigo-500/[0.04] blur-[120px]" />
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.04] blur-[150px]" />
+        <div className="absolute bottom-0 left-1/3 h-[300px] w-[400px] rounded-full bg-indigo-500/[0.03] blur-[120px]" />
+
+        {/* Grid Pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -51,7 +53,7 @@ export default function Contact() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="mb-20 flex items-center gap-4"
+          className="mb-20 flex items-center justify-center gap-4 md:justify-start"
         >
           <span className="text-[11px] uppercase tracking-[0.2em] text-neutral-600">
             05
@@ -71,7 +73,7 @@ export default function Contact() {
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl"
+            className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-[4rem]"
           >
             Let&apos;s work{" "}
             <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
@@ -81,7 +83,7 @@ export default function Contact() {
 
           <motion.p
             variants={itemVariants}
-            className="mb-10 max-w-lg text-[15px] leading-[1.8] text-neutral-500"
+            className="mb-12 max-w-xl text-[15px] leading-[1.8] text-neutral-500 md:text-[16px]"
           >
             I&apos;m excited to connect with fellow developers, potential
             clients, and anyone curious about my work. Whether it&apos;s a
@@ -89,21 +91,23 @@ export default function Contact() {
             out.
           </motion.p>
 
-          {/* CTA */}
-          <motion.div variants={itemVariants} className="mb-16">
+          {/* CTA Button */}
+          <motion.div variants={itemVariants} className="mb-20">
             <a
               href="mailto:andreedyson31@gmail.com"
-              className="group relative inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] active:scale-95"
+              className="group relative inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-[14px] font-semibold text-[#030305] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-95"
             >
-              <span className="pointer-events-none absolute inset-0 rounded-full bg-white/30 blur-xl" />
+              {/* Internal Glow for Button */}
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-indigo-400/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+
               <span className="relative flex items-center gap-2">
                 Get in touch
                 <svg
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                  className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                 >
                   <path
                     strokeLinecap="round"
@@ -118,27 +122,30 @@ export default function Contact() {
           {/* Divider */}
           <motion.div
             variants={itemVariants}
-            className="mb-12 flex items-center gap-4"
+            className="mb-10 flex w-full max-w-sm items-center justify-center gap-4"
           >
             <motion.div
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-              className="h-px w-16 origin-right bg-gradient-to-r from-transparent to-white/[0.08] md:w-32"
+              transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+              className="h-px flex-1 origin-right bg-gradient-to-r from-transparent to-white/[0.06]"
             />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700">
+            <span className="flex-shrink-0 text-[10px] uppercase tracking-[0.2em] text-neutral-600">
               or find me on
             </span>
             <motion.div
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-              className="h-px w-16 origin-left bg-gradient-to-l from-transparent to-white/[0.08] md:w-32"
+              transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+              className="h-px flex-1 origin-left bg-gradient-to-l from-transparent to-white/[0.06]"
             />
           </motion.div>
 
-          {/* Socials */}
-          <motion.div variants={itemVariants}>
+          {/* Socials Component */}
+          <motion.div
+            variants={itemVariants}
+            className="rounded-2xl border border-white/[0.04] bg-white/[0.01] p-4 backdrop-blur-sm"
+          >
             <Socials />
           </motion.div>
         </motion.div>
