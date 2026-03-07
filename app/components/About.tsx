@@ -203,7 +203,7 @@ export default function About() {
               variants={itemVariants}
               className="text-[15px] leading-[1.85] text-neutral-400"
             >
-              My path into web development wasn&apos;t planned — it started with
+              My path into web development wasn&apos;t planned, it started with
               a 10-year-old kid getting his{" "}
               <span className="text-neutral-200">first laptop</span> and falling
               down the rabbit hole of the internet. What began as copying{" "}
@@ -218,12 +218,12 @@ export default function About() {
               variants={itemVariants}
               className="text-[15px] leading-[1.85] text-neutral-400"
             >
-              Today I work across the modern frontend stack —{" "}
+              Today I work across the modern frontend stacks like{" "}
               <span className="font-medium text-neutral-200">Next.js</span>,{" "}
               <span className="font-medium text-blue-400/80">TypeScript</span>,{" "}
               <span className="font-medium text-sky-300/80">Tailwind</span>,
               building everything from landing pages to complex dashboards. I
-              care about the details: smooth interactions, clean component
+              care about the details, smooth interactions, clean component
               architecture, and UI that doesn&apos;t get in the user&apos;s way.
             </motion.p>
 
