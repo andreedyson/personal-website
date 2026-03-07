@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { TECH_STACKS } from "@/index";
 
 export default function Hero() {
   const containerVariants = {
@@ -21,12 +23,44 @@ export default function Hero() {
     },
   };
 
+  // Mengambil 4 tech stack pertama untuk dijadikan planet yang mengorbit
+  const orbitTechs = TECH_STACKS.slice(0, 4).map((tech, index) => {
+    // Ukuran cincin dari yang terkecil (dalam) ke terbesar (luar)
+    const configs = [
+      {
+        size: "h-[200px] w-[200px] md:h-[260px] md:w-[260px]",
+        speed: 20,
+        angle: 0,
+        dir: 1,
+      },
+      {
+        size: "h-[260px] w-[260px] md:h-[360px] md:w-[360px]",
+        speed: 25,
+        angle: 75,
+        dir: -1,
+      },
+      {
+        size: "h-[320px] w-[320px] md:h-[460px] md:w-[460px]",
+        speed: 35,
+        angle: 180,
+        dir: 1,
+      },
+      {
+        size: "h-[380px] w-[380px] md:h-[560px] md:w-[560px]",
+        speed: 40,
+        angle: 250,
+        dir: -1,
+      },
+    ];
+    return { ...tech, config: configs[index] };
+  });
+
   return (
     <section
       id="home"
       className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#030305] px-6 pb-32 md:px-12"
     >
-      {/* Background */}
+      {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute left-1/2 top-1/3 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.08] blur-[150px]" />
         <div className="absolute bottom-1/4 left-1/3 h-[400px] w-[500px] -translate-x-1/2 rounded-full bg-indigo-500/[0.06] blur-[130px]" />
@@ -50,7 +84,7 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Badge */}
+        {/* Available Badge */}
         <motion.div variants={itemVariants} className="mb-8">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.06] bg-white/[0.03] px-4 py-1.5 text-xs font-medium text-neutral-400 backdrop-blur-sm">
             <span className="relative flex h-1.5 w-1.5">
@@ -130,8 +164,9 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          {/* Central gradient orb */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          {/* Orbital Tech Logos */}
+          <div className="absolute inset-0 z-0">
+            {/* Central gradient orb */}
             <motion.div
               animate={{
                 scale: [1, 1.08, 1],
@@ -142,57 +177,63 @@ export default function Hero() {
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="relative h-48 w-48 md:h-64 md:w-64"
+              className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 md:h-52 md:w-52"
             >
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/30 via-indigo-500/20 to-purple-600/30 blur-3xl" />
               <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-blue-500/25 via-cyan-400/15 to-indigo-500/25 blur-2xl" />
-              <div className="absolute inset-8 rounded-full bg-gradient-to-bl from-indigo-400/20 to-blue-600/20 blur-xl" />
             </motion.div>
-          </div>
 
-          {/* Orbit ring 1 */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 30,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="h-56 w-56 rounded-full border border-white/[0.04] md:h-72 md:w-72"
-            >
-              <motion.div
-                animate={{
-                  boxShadow: [
-                    "0 0 8px rgba(96,165,250,0.6)",
-                    "0 0 16px rgba(96,165,250,0.8)",
-                    "0 0 8px rgba(96,165,250,0.6)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -left-1 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-blue-400"
-              />
-            </motion.div>
-          </div>
-
-          {/* Orbit ring 2 */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{
-                duration: 22,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="h-72 w-72 rounded-full border border-dashed border-white/[0.03] md:h-[340px] md:w-[340px]"
-            >
-              <div className="absolute -right-1 top-1/3 h-2 w-2 rounded-full bg-purple-400/60 shadow-[0_0_10px_rgba(192,132,252,0.5)]" />
-              <div className="absolute bottom-4 left-8 h-1.5 w-1.5 rounded-full bg-cyan-400/50 shadow-[0_0_8px_rgba(34,211,238,0.4)]" />
-            </motion.div>
+            {/* Orbiting Rings & Tech Logos */}
+            {orbitTechs.map((tech) => (
+              <div
+                key={tech.name}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                {/* The Ring */}
+                <motion.div
+                  animate={{
+                    rotate: [
+                      tech.config.angle,
+                      tech.config.angle + 360 * tech.config.dir,
+                    ],
+                  }}
+                  transition={{
+                    duration: tech.config.speed,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className={`relative rounded-full border border-dashed border-white/[0.15] ${tech.config.size}`}
+                >
+                  {/* Container logo agar tidak rusak oleh framer motion, ditaruh di sisi kiri cincin */}
+                  <div className="absolute left-0 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+                    {/* Rotasi kebalikan agar logo selalu berdiri tegak (upright) */}
+                    <motion.div
+                      animate={{
+                        rotate: [
+                          -tech.config.angle,
+                          -(tech.config.angle + 360 * tech.config.dir),
+                        ],
+                      }}
+                      transition={{
+                        duration: tech.config.speed,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    >
+                      <div className="group flex size-12 items-center justify-center overflow-hidden rounded-full border border-white/[0.1] bg-[#0A0A0F] shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-colors hover:border-white/[0.2] hover:bg-white/[0.05] md:size-14">
+                        <Image
+                          src={tech.imgUrl}
+                          alt={tech.name}
+                          width={32}
+                          height={32}
+                          className="relative z-10 size-6 transition-transform duration-300 group-hover:scale-110 md:size-7"
+                        />
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            ))}
           </div>
 
           {/* Floating card: Browser mockup — top left */}
@@ -318,7 +359,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Floating card: Git — bottom left */}
+          {/* Floating card: Git Commit — bottom left */}
           <motion.div
             animate={{ y: [0, 5, 0] }}
             transition={{
@@ -354,74 +395,6 @@ export default function Hero() {
               </div>
             </motion.div>
           </motion.div>
-
-          {/* Scattered particles */}
-          {[
-            {
-              top: "15%",
-              left: "20%",
-              size: 3,
-              delay: 0,
-              duration: 4,
-              color: "bg-blue-400/30",
-            },
-            {
-              top: "70%",
-              right: "18%",
-              size: 2,
-              delay: 1.5,
-              duration: 5,
-              color: "bg-purple-400/25",
-            },
-            {
-              top: "40%",
-              left: "10%",
-              size: 2,
-              delay: 0.8,
-              duration: 6,
-              color: "bg-cyan-400/20",
-            },
-            {
-              top: "25%",
-              right: "25%",
-              size: 2.5,
-              delay: 2,
-              duration: 4.5,
-              color: "bg-indigo-400/25",
-            },
-            {
-              bottom: "30%",
-              left: "30%",
-              size: 1.5,
-              delay: 3,
-              duration: 5.5,
-              color: "bg-blue-300/20",
-            },
-          ].map((p, i) => (
-            <motion.div
-              key={i}
-              animate={{
-                opacity: [0.3, 0.8, 0.3],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: p.duration,
-                repeat: Infinity,
-                delay: p.delay,
-                ease: "easeInOut",
-              }}
-              className={`absolute rounded-full ${p.color}`}
-              style={{
-                top: p.top,
-                left: p.left,
-                right: p.right,
-                bottom: p.bottom,
-                width: p.size * 4,
-                height: p.size * 4,
-                boxShadow: `0 0 ${p.size * 6}px currentColor`,
-              }}
-            />
-          ))}
         </motion.div>
       </motion.div>
 
