@@ -25,6 +25,46 @@ export default function About() {
     },
   };
 
+  const timeline = [
+    {
+      year: "2012",
+      title: "First laptop, first spark",
+      description:
+        "Got my first laptop at 10. Started copying HTML & CSS templates for fun — had no idea it would become a career.",
+      accent: "bg-orange-400",
+    },
+    {
+      year: "2020",
+      title: "From hobby to skill",
+      description:
+        "Shifted from tinkering to intentional learning. Picked up JavaScript, started building real projects and breaking things.",
+      accent: "bg-yellow-400",
+    },
+    {
+      year: "2022",
+      title: "Going modern",
+      description:
+        "Adopted React and Next.js. Fell in love with component-driven development, TypeScript, and the modern frontend ecosystem.",
+      accent: "bg-blue-400",
+    },
+    {
+      year: "Now",
+      title: "Building full-stack",
+      description:
+        "Exploring backend with Hono and Prisma. Focused on shipping fast, functional apps end-to-end.",
+      accent: "bg-emerald-400",
+    },
+  ];
+
+  const stack = [
+    { name: "Next.js", icon: "▲", color: "text-white" },
+    { name: "TypeScript", icon: "TS", color: "text-blue-400" },
+    { name: "Tailwind", icon: "◆", color: "text-cyan-400" },
+    { name: "React", icon: "⚛", color: "text-sky-400" },
+    { name: "Hono", icon: "🔥", color: "text-orange-400" },
+    { name: "Prisma", icon: "◈", color: "text-emerald-400" },
+  ];
+
   return (
     <section
       id="about"
@@ -62,55 +102,83 @@ export default function About() {
           </span>
         </motion.div>
 
-        {/* Top: Image + Intro Row */}
+        {/* Top: Image + Intro */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="mb-16 flex flex-col items-start gap-12 md:flex-row md:items-center md:gap-16"
+          className="mb-20 flex flex-col items-start gap-12 md:flex-row md:items-center md:gap-16"
         >
-          {/* Image */}
+          {/* Image with layered frame */}
           <motion.div
             variants={itemVariants}
-            className="relative flex-shrink-0"
+            className="group relative flex-shrink-0"
           >
-            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-blue-500/[0.08] to-indigo-500/[0.04] blur-xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-white/[0.06]">
-              <Image
-                src="/assets/profile_andre.png"
-                width={1200}
-                height={1200}
-                alt="Andre Edyson"
-                className="h-[200px] w-[200px] object-cover object-center md:h-[220px] md:w-[220px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/60 via-transparent to-transparent" />
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/[0.1] via-indigo-500/[0.05] to-purple-500/[0.08] opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
+            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-blue-500/[0.06] to-indigo-500/[0.03] blur-xl" />
+
+            <div className="relative">
+              {/* Decorative border frame */}
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20" />
+              <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0A0A0F]">
+                <Image
+                  src="/assets/profile_andre.png"
+                  width={1200}
+                  height={1200}
+                  alt="Andre Edyson"
+                  className="h-[200px] w-[200px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.03] md:h-[240px] md:w-[240px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/50 via-transparent to-transparent" />
+
+                {/* Corner accents */}
+                <div className="absolute left-3 top-3 h-5 w-5 border-l border-t border-white/[0.1]" />
+                <div className="absolute bottom-3 right-3 h-5 w-5 border-b border-r border-white/[0.1]" />
+              </div>
             </div>
+
+            {/* Floating status badge */}
+            <motion.div
+              animate={{ y: [0, -4, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -bottom-3 -right-3 z-10 rounded-lg border border-white/[0.08] bg-[#0c0c14]/90 px-2.5 py-1.5 shadow-lg backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-1.5">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                </span>
+                <span className="text-[10px] font-medium text-emerald-400">
+                  Open to work
+                </span>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Intro heading */}
+          {/* Intro */}
           <div className="flex-1">
             <motion.h2
               variants={itemVariants}
-              className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem] lg:leading-tight"
+              className="mb-5 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
             >
               I&apos;m{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Andre Edyson
+              <span className="relative">
+                <span className="relative z-10 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                  Andre Edyson
+                </span>
+                <span className="absolute -inset-1 -z-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 blur-lg" />
               </span>
-              , a frontend developer who loves crafting things for the web.
+              , a frontend developer who turns ideas into interfaces.
             </motion.h2>
-            <motion.div
+            <motion.p
               variants={itemVariants}
-              className="flex items-center gap-3"
+              className="text-[15px] leading-relaxed text-neutral-500"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              </span>
-              <span className="text-xs text-neutral-500">
-                Based in Indonesia · Available for work
-              </span>
-            </motion.div>
+              Based in Indonesia · Building for the web since 2020
+            </motion.p>
           </div>
         </motion.div>
 
@@ -119,123 +187,195 @@ export default function About() {
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="mb-16 h-px w-full origin-left bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent"
+          className="mb-20 h-px w-full origin-left bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent"
         />
 
-        {/* Body Content Grid */}
+        {/* Story + Sidebar */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid gap-12 md:grid-cols-5 md:gap-16"
+          className="mb-20 grid gap-12 md:grid-cols-5 md:gap-16"
         >
-          {/* Story — wider column */}
-          <div className="space-y-5 md:col-span-3">
+          {/* Story */}
+          <div className="space-y-6 md:col-span-3">
             <motion.p
               variants={itemVariants}
-              className="text-[15px] leading-[1.8] text-neutral-400"
+              className="text-[15px] leading-[1.85] text-neutral-400"
             >
-              My web development journey started when I was a kid. As a 10 year
-              old, I got my{" "}
-              <span className="text-neutral-200 underline decoration-blue-500/40 underline-offset-4">
-                very first laptop
-              </span>{" "}
-              and it sparked my interest not only in watching YouTube videos,
-              but also{" "}
-              <span className="text-neutral-200 underline decoration-indigo-500/40 underline-offset-4">
-                exploring the internet
-              </span>
-              . What started with copying{" "}
+              My path into web development wasn&apos;t planned — it started with
+              a 10-year-old kid getting his{" "}
+              <span className="text-neutral-200">first laptop</span> and falling
+              down the rabbit hole of the internet. What began as copying{" "}
               <span className="font-medium text-orange-400/90">HTML</span> and{" "}
               <span className="font-medium text-sky-400/90">CSS</span> templates
-              for fun slowly turned into a passion for building interactive and
-              useful interfaces.
+              became an obsession with making things{" "}
+              <em className="not-italic text-neutral-300">look right</em> and{" "}
+              <em className="not-italic text-neutral-300">work well</em>.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-[15px] leading-[1.8] text-neutral-400"
+              className="text-[15px] leading-[1.85] text-neutral-400"
             >
-              That curiosity grew into a skillset and now, I build modern web
-              applications using tools like{" "}
+              Today I work across the modern frontend stack —{" "}
               <span className="font-medium text-neutral-200">Next.js</span>,{" "}
-              <span className="font-medium text-yellow-400/80">Javascript</span>
-              , <span className="font-medium text-blue-400/80">Typescript</span>{" "}
-              and{" "}
-              <span className="font-medium text-sky-300/80">TailwindCSS</span>.
-              I love solving problems through clean UI and thoughtful code —
-              whether it&apos;s a dashboard, landing page, or internal tool. My
-              goal is always the same:{" "}
-              <span className="text-neutral-200">
-                make it fast, functional, and visually engaging.
-              </span>
+              <span className="font-medium text-blue-400/80">TypeScript</span>,{" "}
+              <span className="font-medium text-sky-300/80">Tailwind</span>,
+              building everything from landing pages to complex dashboards. I
+              care about the details: smooth interactions, clean component
+              architecture, and UI that doesn&apos;t get in the user&apos;s way.
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-[15px] leading-[1.85] text-neutral-400"
+            >
+              Right now I&apos;m pushing into full-stack territory with{" "}
+              <span className="font-medium text-neutral-200">Hono</span> and{" "}
+              <span className="font-medium text-neutral-200">Prisma</span>,
+              because I want to own the entire experience from the database
+              query to the pixel on screen.
             </motion.p>
           </div>
 
-          {/* Right column — stats + details */}
-          <div className="space-y-8 md:col-span-2">
+          {/* Sidebar */}
+          <div className="space-y-6 md:col-span-2">
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-2 gap-3"
             >
               {[
-                { number: "3+", label: "Years of\nExperience" },
-                { number: "20+", label: "Projects\nBuilt" },
+                { number: "3+", label: "Years\nExperience" },
+                { number: "20+", label: "Projects\nShipped" },
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-white/[0.04] bg-white/[0.02] p-4"
+                  className="group relative overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.02] p-5 transition-colors duration-300 hover:border-white/[0.1]"
                 >
-                  <p className="text-2xl font-bold text-white">{stat.number}</p>
-                  <p className="mt-1.5 whitespace-pre-line text-[10px] uppercase leading-tight tracking-wider text-neutral-600">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <p className="relative text-3xl font-bold text-white">
+                    {stat.number}
+                  </p>
+                  <p className="relative mt-2 whitespace-pre-line text-[10px] uppercase leading-tight tracking-wider text-neutral-600">
                     {stat.label}
                   </p>
                 </div>
               ))}
             </motion.div>
 
-            {/* Core tools */}
+            {/* Stack grid */}
             <motion.div variants={itemVariants}>
               <p className="mb-3 text-[10px] uppercase tracking-[0.15em] text-neutral-600">
-                Core Stack
+                Stack
               </p>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Next.js",
-                  "TypeScript",
-                  "TailwindCSS",
-                  "Hono",
-                  "Prisma",
-                  "React",
-                ].map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-full border border-white/[0.06] bg-white/[0.03] px-3 py-1 text-[11px] text-neutral-400"
+              <div className="grid grid-cols-3 gap-2">
+                {stack.map((tool, i) => (
+                  <motion.div
+                    key={tool.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={
+                      isInView
+                        ? { opacity: 1, scale: 1 }
+                        : { opacity: 0, scale: 0.9 }
+                    }
+                    transition={{ delay: 0.6 + i * 0.06, duration: 0.35 }}
+                    className="group flex flex-col items-center gap-1.5 rounded-xl border border-white/[0.04] bg-white/[0.02] px-2 py-3 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
                   >
-                    {tool}
-                  </span>
+                    <span
+                      className={`text-sm ${tool.color} transition-transform duration-300 group-hover:scale-110`}
+                    >
+                      {tool.icon}
+                    </span>
+                    <span className="text-[10px] text-neutral-500">
+                      {tool.name}
+                    </span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Currently */}
+            {/* Philosophy card */}
             <motion.div
               variants={itemVariants}
-              className="rounded-xl border border-white/[0.04] bg-white/[0.02] p-4"
+              className="relative overflow-hidden rounded-xl border border-white/[0.05] bg-white/[0.02]"
             >
-              <div className="mb-2 flex items-center gap-2">
-                <div className="h-1 w-1 rounded-full bg-blue-400" />
-                <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-600">
-                  Currently
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+              <div className="p-4">
+                <div className="mb-2.5 flex items-center gap-2">
+                  <div className="h-1 w-1 rounded-full bg-blue-400" />
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-600">
+                    Philosophy
+                  </p>
+                </div>
+                <p className="text-[13px] leading-relaxed text-neutral-400">
+                  &ldquo;Ship fast, care about details, and never stop learning.
+                  The best code is the one users never have to think
+                  about.&rdquo;
                 </p>
               </div>
-              <p className="text-sm leading-relaxed text-neutral-400">
-                Exploring backend development with{" "}
-                <span className="text-neutral-300">Hono</span> and building
-                full-stack applications.
-              </p>
             </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={itemVariants} className="mb-8">
+            <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-600">
+              Journey
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+              transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+              className="absolute left-0 right-0 top-4 hidden h-px origin-left bg-gradient-to-r from-white/[0.06] via-white/[0.04] to-white/[0.06] md:block"
+            />
+
+            {/* Vertical line for mobile */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+              transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+              className="absolute bottom-0 left-4 top-0 w-px origin-top bg-gradient-to-b from-white/[0.06] via-white/[0.04] to-white/[0.06] md:hidden"
+            />
+
+            <div className="grid gap-6 md:grid-cols-4 md:gap-4">
+              {timeline.map((item, i) => (
+                <motion.div
+                  key={item.year}
+                  variants={itemVariants}
+                  className="group relative pl-10 md:pl-0 md:pt-10"
+                >
+                  {/* Dot */}
+                  <div className="absolute left-[11px] top-1 flex items-center justify-center md:left-0 md:top-0">
+                    <div
+                      className={`relative z-10 h-2.5 w-2.5 rounded-full ${item.accent} shadow-[0_0_8px_rgba(255,255,255,0.1)] transition-shadow duration-300 group-hover:shadow-[0_0_14px_rgba(255,255,255,0.15)]`}
+                    />
+                  </div>
+
+                  <div className="rounded-xl border border-transparent p-0 transition-all duration-300 md:p-4 md:hover:border-white/[0.04] md:hover:bg-white/[0.01]">
+                    <p className="mb-1 text-[11px] font-medium tracking-wider text-neutral-600">
+                      {item.year}
+                    </p>
+                    <p className="mb-2 text-sm font-semibold text-neutral-200">
+                      {item.title}
+                    </p>
+                    <p className="text-[13px] leading-relaxed text-neutral-500">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
