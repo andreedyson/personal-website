@@ -259,6 +259,30 @@ export const PROJECTS_DATA = [
 
 export const EXPERIENCES = [
   {
+    role: "Fullstack Web Developer",
+    company: "Private Educational Institution", // Alternatif: "Confidential Client"
+    companyUrl: undefined,
+    location: "Remote",
+    type: "Freelance",
+    startDate: "Feb 2026",
+    endDate: "Present",
+    description:
+      "Developing a custom internal Learning Management System (LMS) for a private educational institution to streamline their academic processes and data management.",
+    highlights: [
+      "Architected and built a scalable LMS platform tailored for internal school operations",
+      "Designed an intuitive UI/UX for administrators to manage courses, teachers, and internal resources efficiently",
+      // Nanti tambahin 1-2 poin lagi tentang fitur spesifik atau tantangan teknis yang berhasil lu selesaikan
+    ],
+    stacks: [
+      "Next.js",
+      "TypeScript",
+      "Hono",
+      "Prisma",
+      "PostgreSQL",
+      // Masukin stack lain yang lu pakai di project ini
+    ],
+  },
+  {
     role: "Frontend Web Developer",
     company: "Universitas Bandar Lampung",
     companyUrl: undefined,
