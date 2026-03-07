@@ -52,10 +52,12 @@ export default function Stacks() {
       ref={ref}
       className="relative w-full overflow-hidden bg-[#030305] px-6 py-24 md:px-12 md:py-32 lg:px-24"
     >
-      {/* Background */}
+      {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute left-1/3 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.04] blur-[140px]" />
+        <div className="absolute left-1/3 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.04] blur-[150px]" />
         <div className="absolute bottom-0 right-1/4 h-[300px] w-[400px] rounded-full bg-indigo-500/[0.03] blur-[120px]" />
+
+        {/* Grid Pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -92,7 +94,7 @@ export default function Stacks() {
           <div className="mb-16 grid gap-6 md:grid-cols-5 md:gap-16">
             <motion.h2
               variants={itemVariants}
-              className="text-3xl font-bold tracking-tight text-white md:col-span-2 md:text-4xl"
+              className="text-3xl font-bold tracking-tight text-white md:col-span-2 md:text-5xl"
             >
               Tools I work{" "}
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
@@ -101,7 +103,7 @@ export default function Stacks() {
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-[15px] leading-[1.8] text-neutral-500 md:col-span-3"
+              className="text-[15px] leading-[1.8] text-neutral-500 md:col-span-3 lg:text-[16px]"
             >
               A collection of tools and technologies I use to build fast,
               modern, and responsive web applications, from frontend frameworks
@@ -114,11 +116,11 @@ export default function Stacks() {
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="mb-12 h-px w-full origin-left bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent"
+            className="mb-16 h-px w-full origin-left bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent"
           />
 
           {/* Stacks Grid */}
-          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 md:gap-4 lg:grid-cols-6">
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 lg:gap-5">
             {TECH_STACKS.map((stack, index) => (
               <motion.div
                 key={stack.name}
@@ -131,7 +133,7 @@ export default function Stacks() {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <motion.div
-                        className="group relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/[0.04] bg-white/[0.02] transition-colors duration-300 hover:border-white/[0.1] hover:bg-white/[0.04]"
+                        className="group relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-white/[0.04] bg-[#0A0A0F] transition-colors duration-300 hover:border-white/[0.1] hover:bg-white/[0.02]"
                         whileHover={{ y: -4, scale: 1.02 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{
@@ -141,26 +143,28 @@ export default function Stacks() {
                         }}
                       >
                         {/* Hover glow */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.06] via-transparent to-indigo-500/[0.04] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.06] via-transparent to-indigo-500/[0.04] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                         <Image
                           src={stack.imgUrl}
                           width={64}
                           height={64}
                           alt={stack.name}
-                          className="relative z-10 size-8 md:size-10"
+                          className="relative z-10 size-9 transition-transform duration-300 group-hover:scale-110 md:size-11"
                         />
 
-                        <span className="relative z-10 hidden text-[10px] font-medium text-neutral-500 transition-colors duration-300 group-hover:text-neutral-300 sm:block">
+                        <span className="relative z-10 hidden text-[11px] font-medium tracking-wide text-neutral-500 transition-colors duration-300 group-hover:text-neutral-300 sm:block">
                           {stack.name}
                         </span>
                       </motion.div>
                     </TooltipTrigger>
                     <TooltipContent
-                      className="border border-white/[0.08] bg-[#0A0A0F] text-neutral-200 sm:hidden"
+                      className="border border-white/[0.08] bg-[#0A0A0F]/90 text-neutral-200 shadow-xl backdrop-blur-md sm:hidden"
                       sideOffset={8}
                     >
-                      <p className="text-xs font-medium">{stack.name}</p>
+                      <p className="text-xs font-semibold tracking-wide">
+                        {stack.name}
+                      </p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -171,13 +175,13 @@ export default function Stacks() {
           {/* Footer note */}
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex items-center justify-center gap-2"
+            className="mt-16 flex items-center justify-center gap-3"
           >
-            <div className="h-1 w-1 rounded-full bg-neutral-700" />
-            <p className="text-[11px] text-neutral-600">
+            <div className="h-1 w-1 rounded-full bg-blue-500/50" />
+            <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-neutral-600">
               Always learning, always experimenting
             </p>
-            <div className="h-1 w-1 rounded-full bg-neutral-700" />
+            <div className="h-1 w-1 rounded-full bg-blue-500/50" />
           </motion.div>
         </motion.div>
       </div>
