@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import LenisProvider from "./components/LenisProvider";
 
 export const metadata: Metadata = {
   title: "Andre Edyson | Front-End Web Developer",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative mx-auto max-w-[1920px] bg-dark-bg py-32">
+        <LenisProvider />
         <Navbar />
         <div>{children}</div>
         <Footer />
