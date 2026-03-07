@@ -33,10 +33,11 @@ export default function Projects() {
       ref={ref}
       className="relative w-full overflow-hidden bg-[#030305] px-6 py-24 md:px-12 md:py-32 lg:px-24"
     >
-      {/* Background */}
+      {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute right-1/3 top-1/4 h-[500px] w-[600px] rounded-full bg-blue-600/[0.04] blur-[140px]" />
         <div className="absolute bottom-1/4 left-1/4 h-[400px] w-[500px] rounded-full bg-indigo-500/[0.03] blur-[130px]" />
+
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -73,7 +74,7 @@ export default function Projects() {
           <div className="mb-16 grid gap-6 md:grid-cols-5 md:gap-16">
             <motion.h2
               variants={itemVariants}
-              className="text-3xl font-bold tracking-tight text-white md:col-span-2 md:text-4xl"
+              className="text-3xl font-bold tracking-tight text-white md:col-span-2 md:text-5xl"
             >
               Selected{" "}
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
@@ -82,7 +83,7 @@ export default function Projects() {
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-[15px] leading-[1.8] text-neutral-500 md:col-span-3"
+              className="text-[15px] leading-[1.8] text-neutral-500 md:col-span-3 lg:text-[16px]"
             >
               A showcase of web projects I&apos;ve built using modern tech
               stacks. Each one reflects my passion for clean design, interactive
@@ -100,15 +101,15 @@ export default function Projects() {
         </motion.div>
 
         {/* Project Cards */}
-        <div className="flex flex-col gap-20 lg:gap-28">
+        <div className="flex flex-col gap-24 lg:gap-32">
           {PROJECTS_DATA.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{
-                duration: 0.6,
+                duration: 0.7,
                 delay: 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
@@ -133,7 +134,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-24 flex flex-col items-center gap-3 text-center"
+          className="mt-32 flex flex-col items-center gap-3 text-center"
         >
           <div className="mb-2 h-px w-16 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
           <h3 className="text-2xl font-bold text-white md:text-3xl">
@@ -143,7 +144,7 @@ export default function Projects() {
             </span>{" "}
             to come...
           </h3>
-          <p className="text-sm text-neutral-500">
+          <p className="text-sm text-neutral-500 md:text-[15px]">
             or check out my{" "}
             <Link
               href="https://github.com/andreedyson?tab=repositories"
