@@ -21,13 +21,6 @@ export default function Hero() {
     },
   };
 
-  const stats = [
-    { label: "Framework", value: "Next.js" },
-    { label: "Language", value: "TypeScript" },
-    { label: "Backend", value: "Hono" },
-    { label: "ORM", value: "Prisma" },
-  ];
-
   return (
     <section
       id="home"
@@ -35,13 +28,9 @@ export default function Hero() {
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        {/* Primary glow */}
         <div className="absolute left-1/2 top-1/3 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/[0.08] blur-[150px]" />
-        {/* Secondary glow */}
         <div className="absolute bottom-1/4 left-1/3 h-[400px] w-[500px] -translate-x-1/2 rounded-full bg-indigo-500/[0.06] blur-[130px]" />
-        {/* Accent glow */}
         <div className="absolute right-1/4 top-1/2 h-[300px] w-[400px] rounded-full bg-purple-600/[0.04] blur-[120px]" />
-        {/* Grid */}
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -72,7 +61,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Name with enhanced glow */}
+        {/* Name */}
         <motion.h1
           variants={itemVariants}
           className="relative mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
@@ -101,7 +90,7 @@ export default function Hero() {
           fast and functional web applications with modern tools.
         </motion.p>
 
-        {/* CTAs with glow on primary */}
+        {/* CTAs */}
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap items-center justify-center gap-4"
@@ -134,106 +123,305 @@ export default function Hero() {
           </Link>
         </motion.div>
 
-        {/* Abstract visual instead of code editor */}
+        {/* === FLOATING COMPOSITION === */}
         <motion.div
-          className="mt-16 w-full max-w-xl md:mt-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          className="relative mt-16 h-[340px] w-full max-w-2xl md:mt-20 md:h-[400px]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          <div className="relative">
-            {/* Glow behind the card */}
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-blue-500/[0.07] via-indigo-500/[0.05] to-purple-500/[0.07] blur-2xl" />
+          {/* Central gradient orb */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div
+              animate={{
+                scale: [1, 1.08, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="relative h-48 w-48 md:h-64 md:w-64"
+            >
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/30 via-indigo-500/20 to-purple-600/30 blur-3xl" />
+              <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-blue-500/25 via-cyan-400/15 to-indigo-500/25 blur-2xl" />
+              <div className="absolute inset-8 rounded-full bg-gradient-to-bl from-indigo-400/20 to-blue-600/20 blur-xl" />
+            </motion.div>
+          </div>
 
-            <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0A0A0F]/80 backdrop-blur-xl">
-              {/* Gradient accent line at top */}
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+          {/* Orbit ring 1 */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 30,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="h-56 w-56 rounded-full border border-white/[0.04] md:h-72 md:w-72"
+            >
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 8px rgba(96,165,250,0.6)",
+                    "0 0 16px rgba(96,165,250,0.8)",
+                    "0 0 8px rgba(96,165,250,0.6)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute -left-1 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-blue-400"
+              />
+            </motion.div>
+          </div>
 
-              <div className="p-6 md:p-8">
-                {/* Top row */}
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03]">
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/10 to-transparent" />
-                      <span className="relative text-lg font-bold text-blue-400">
-                        A
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-neutral-200">
-                        Andre Edyson
-                      </p>
-                      <p className="text-xs text-neutral-600">
-                        Frontend Developer
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-2.5 py-1">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span className="text-[10px] font-medium text-emerald-400">
-                      Available
-                    </span>
-                  </div>
+          {/* Orbit ring 2 */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{
+                duration: 22,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="h-72 w-72 rounded-full border border-dashed border-white/[0.03] md:h-[340px] md:w-[340px]"
+            >
+              <div className="absolute -right-1 top-1/3 h-2 w-2 rounded-full bg-purple-400/60 shadow-[0_0_10px_rgba(192,132,252,0.5)]" />
+              <div className="absolute bottom-4 left-8 h-1.5 w-1.5 rounded-full bg-cyan-400/50 shadow-[0_0_8px_rgba(34,211,238,0.4)]" />
+            </motion.div>
+          </div>
+
+          {/* Floating card: Browser mockup — top left */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -left-2 top-4 z-20 md:left-0 md:top-2"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -30, rotate: -3 }}
+              animate={{ opacity: 1, x: 0, rotate: -3 }}
+              transition={{ delay: 0.8, duration: 0.7, ease: "easeOut" }}
+              className="w-52 overflow-hidden rounded-xl border border-white/[0.08] bg-[#0c0c14]/90 shadow-2xl shadow-blue-500/[0.05] backdrop-blur-xl md:w-60"
+            >
+              {/* Browser chrome */}
+              <div className="flex items-center gap-2 border-b border-white/[0.05] px-3 py-2">
+                <div className="flex gap-1">
+                  <div className="h-2 w-2 rounded-full bg-red-400/50" />
+                  <div className="h-2 w-2 rounded-full bg-yellow-400/50" />
+                  <div className="h-2 w-2 rounded-full bg-green-400/50" />
                 </div>
-
-                {/* Divider */}
-                <div className="mb-6 h-px w-full bg-white/[0.04]" />
-
-                {/* Stats grid */}
-                <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-                  {stats.map((stat, i) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        delay: 0.9 + i * 0.1,
-                        duration: 0.4,
-                      }}
-                      className="group relative overflow-hidden rounded-xl border border-white/[0.04] bg-white/[0.02] p-3 transition-colors duration-300 hover:border-white/[0.08]"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                      <p className="relative mb-1 text-[10px] uppercase tracking-wider text-neutral-600">
-                        {stat.label}
-                      </p>
-                      <p className="relative text-sm font-medium text-neutral-300">
-                        {stat.value}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Activity bar */}
-                <div className="mt-6 flex items-center gap-3">
-                  <span className="text-[10px] text-neutral-600">Activity</span>
-                  <div className="flex flex-1 items-end gap-[3px]">
-                    {Array.from({ length: 24 }).map((_, i) => {
-                      const height = Math.max(
-                        4,
-                        Math.sin(i * 0.5 + 2) * 16 + Math.random() * 8,
-                      );
-                      return (
-                        <motion.div
-                          key={i}
-                          initial={{ height: 0 }}
-                          animate={{ height }}
-                          transition={{
-                            delay: 1.2 + i * 0.03,
-                            duration: 0.5,
-                            ease: "easeOut",
-                          }}
-                          className="flex-1 rounded-sm bg-gradient-to-t from-blue-500/20 to-blue-400/40"
-                        />
-                      );
-                    })}
-                  </div>
+                <div className="flex-1 rounded-md bg-white/[0.04] px-2 py-0.5">
+                  <span className="text-[9px] text-neutral-600">
+                    andreedyson.dev
+                  </span>
                 </div>
               </div>
+              {/* Mini site preview */}
+              <div className="p-3">
+                <div className="mb-2 h-2 w-16 rounded-full bg-gradient-to-r from-blue-400/40 to-indigo-400/40" />
+                <div className="mb-1.5 h-1.5 w-full rounded-full bg-white/[0.06]" />
+                <div className="mb-1.5 h-1.5 w-4/5 rounded-full bg-white/[0.04]" />
+                <div className="mb-3 h-1.5 w-3/5 rounded-full bg-white/[0.03]" />
+                <div className="grid grid-cols-3 gap-1.5">
+                  {[
+                    "from-blue-500/20 to-blue-600/10",
+                    "from-purple-500/20 to-purple-600/10",
+                    "from-cyan-500/20 to-cyan-600/10",
+                  ].map((gradient, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1.2 + i * 0.1, duration: 0.4 }}
+                      className={`h-10 rounded-md bg-gradient-to-br ${gradient} border border-white/[0.04]`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
 
-              {/* Bottom accent */}
-              <div className="h-px w-full bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
-            </div>
-          </div>
+          {/* Floating card: Terminal — bottom right */}
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+            className="absolute -right-2 bottom-6 z-20 md:bottom-4 md:right-0"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: 30, rotate: 2 }}
+              animate={{ opacity: 1, x: 0, rotate: 2 }}
+              transition={{ delay: 1.0, duration: 0.7, ease: "easeOut" }}
+              className="w-56 overflow-hidden rounded-xl border border-white/[0.08] bg-[#0c0c14]/90 shadow-2xl shadow-purple-500/[0.05] backdrop-blur-xl md:w-64"
+            >
+              <div className="flex items-center gap-2 border-b border-white/[0.05] px-3 py-2">
+                <div className="h-2.5 w-2.5 rounded bg-white/[0.06]">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-2.5 w-2.5 text-neutral-500"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path d="M4 17l6-6-6-6M12 19h8" />
+                  </svg>
+                </div>
+                <span className="text-[9px] text-neutral-600">terminal</span>
+              </div>
+              <div className="p-3 font-mono text-[10px] leading-relaxed md:text-[11px]">
+                <TerminalTyping />
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Floating card: Component — top right */}
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+            className="absolute -top-2 right-6 z-10 md:right-12 md:top-0"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -20, rotate: 4 }}
+              animate={{ opacity: 1, y: 0, rotate: 4 }}
+              transition={{ delay: 1.2, duration: 0.7, ease: "easeOut" }}
+              className="overflow-hidden rounded-lg border border-white/[0.06] bg-[#0c0c14]/90 px-3 py-2 shadow-xl backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex h-6 w-6 items-center justify-center rounded-md border border-blue-500/10 bg-gradient-to-br from-blue-500/20 to-indigo-500/20">
+                  <span className="text-[10px] text-blue-400">⚛</span>
+                </div>
+                <div>
+                  <p className="text-[10px] font-medium text-neutral-300">
+                    {"<Hero />"}
+                  </p>
+                  <p className="text-[8px] text-neutral-600">rendered 2ms</p>
+                </div>
+                <div className="ml-1 h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Floating card: Git — bottom left */}
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{
+              duration: 5.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+            className="absolute bottom-2 left-6 z-10 md:bottom-0 md:left-12"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20, rotate: -2 }}
+              animate={{ opacity: 1, y: 0, rotate: -2 }}
+              transition={{ delay: 1.4, duration: 0.7, ease: "easeOut" }}
+              className="overflow-hidden rounded-lg border border-white/[0.06] bg-[#0c0c14]/90 px-3 py-2 shadow-xl backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-2">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-3.5 w-3.5 text-orange-400/70"
+                  fill="currentColor"
+                >
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
+                </svg>
+                <div>
+                  <p className="text-[10px] font-medium text-neutral-300">
+                    feat: new portfolio
+                  </p>
+                  <p className="text-[8px] text-neutral-600">
+                    pushed 3m ago · main
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Scattered particles */}
+          {[
+            {
+              top: "15%",
+              left: "20%",
+              size: 3,
+              delay: 0,
+              duration: 4,
+              color: "bg-blue-400/30",
+            },
+            {
+              top: "70%",
+              right: "18%",
+              size: 2,
+              delay: 1.5,
+              duration: 5,
+              color: "bg-purple-400/25",
+            },
+            {
+              top: "40%",
+              left: "10%",
+              size: 2,
+              delay: 0.8,
+              duration: 6,
+              color: "bg-cyan-400/20",
+            },
+            {
+              top: "25%",
+              right: "25%",
+              size: 2.5,
+              delay: 2,
+              duration: 4.5,
+              color: "bg-indigo-400/25",
+            },
+            {
+              bottom: "30%",
+              left: "30%",
+              size: 1.5,
+              delay: 3,
+              duration: 5.5,
+              color: "bg-blue-300/20",
+            },
+          ].map((p, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                opacity: [0.3, 0.8, 0.3],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: p.duration,
+                repeat: Infinity,
+                delay: p.delay,
+                ease: "easeInOut",
+              }}
+              className={`absolute rounded-full ${p.color}`}
+              style={{
+                top: p.top,
+                left: p.left,
+                right: p.right,
+                bottom: p.bottom,
+                width: p.size * 4,
+                height: p.size * 4,
+                boxShadow: `0 0 ${p.size * 6}px currentColor`,
+              }}
+            />
+          ))}
         </motion.div>
       </motion.div>
 
@@ -260,5 +448,66 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
+  );
+}
+
+function TerminalTyping() {
+  const lines = [
+    { prefix: "~", cmd: "npx create-next-app@latest", delay: 0.8 },
+    { prefix: "✓", cmd: "Installing dependencies...", delay: 2.0 },
+    { prefix: "✓", cmd: "TypeScript, Tailwind, ESLint", delay: 3.0 },
+    { prefix: "▸", cmd: "Ready on localhost:3000", delay: 4.0 },
+  ];
+
+  return (
+    <div className="space-y-1">
+      {lines.map((line, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, x: -4 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: line.delay, duration: 0.4 }}
+          className="flex gap-2"
+        >
+          <span
+            className={
+              line.prefix === "▸"
+                ? "text-emerald-400"
+                : line.prefix === "✓"
+                  ? "text-blue-400/70"
+                  : "text-neutral-600"
+            }
+          >
+            {line.prefix}
+          </span>
+          <span
+            className={
+              line.prefix === "▸"
+                ? "font-semibold text-emerald-400/90"
+                : "text-neutral-500"
+            }
+          >
+            {line.cmd}
+          </span>
+        </motion.div>
+      ))}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 4.5 }}
+        className="flex items-center gap-1 pt-1"
+      >
+        <span className="text-neutral-600">~</span>
+        <motion.div
+          animate={{ opacity: [1, 0] }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            ease: "steps(1)",
+          }}
+          className="h-3 w-1.5 rounded-[1px] bg-white/50"
+        />
+      </motion.div>
+    </div>
   );
 }
