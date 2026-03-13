@@ -27,7 +27,7 @@ export default function About() {
 
   const timeline = [
     {
-      year: "2012",
+      year: "2014",
       title: "First laptop, first spark",
       description:
         "Got my first laptop at 10. Started copying HTML & CSS templates for fun — had no idea it would become a career.",
