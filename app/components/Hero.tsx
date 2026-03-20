@@ -121,7 +121,7 @@ export default function Hero() {
           className="mb-10 max-w-lg text-sm leading-relaxed text-neutral-500 md:text-base"
         >
           I bridge technical complexity with seamless user experience, crafting
-          fast and functional web applications with modern tools.
+          fast and functional web applications using modern tools.
         </motion.p>
 
         {/* CTAs */}
