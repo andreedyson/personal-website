@@ -17,9 +17,4 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           passphrase: ${{ secrets.VPS_KEY_PASSPHRASE }}
-          script: |
-            cd /var/www/personal-website
-            git pull origin master
-            npm ci --legacy-peer-deps
-            npm run build || exit 1
-            pm2 restart personal-website || pm2 start npm --name "personal-website" -- run start
+          script: ~/deploy.sh
