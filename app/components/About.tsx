@@ -177,7 +177,7 @@ export default function About() {
               variants={itemVariants}
               className="text-[15px] leading-relaxed text-neutral-500"
             >
-              Based in Indonesia · Building for the web since 2020
+              Based in Lampung, Indonesia · Building for the web since 2020
             </motion.p>
           </div>
         </motion.div>
